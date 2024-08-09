@@ -8,7 +8,24 @@
  * the most recently closing bracket has to match with the most recent opening opening bracket in the stack
  */
 
-function isMatchingBracket(str: string): boolean {
+const isMatchingBracket = (str) => {
+  const stack = [];
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    if (/\(|\{|\[/.test(char)) {
+      stack.push(char);
+    } else {
+      const leftSide = stack.pop();
+      const pair = `${leftSide}${char}`;
+      if (!/\(\)|\[\]|\{\}/.test(pair)) return false;
+    }
+  }
+  return !stack.length;
+};
+
+
+
+function isMatchingBracket001(str: string): boolean {
   const stack = [];
   const closingBrackets = {
     ")": "(",

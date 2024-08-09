@@ -20,7 +20,9 @@
  *   { value: 7, sourceArr: 'B' }
  *   { value: 2, sourceArr: 'B' }
  * ]
+ *
  * merge these two new arrays and sort by value
+ *
  * [
  *   { value: 2, sourceArr: 'B' }
  *   { value: 2, sourceArr: 'A' }
@@ -29,6 +31,7 @@
  *   { value: 5, sourceArr: 'A' }
  *   { value: 7, sourceArr: 'B' }
  * ]
+ *
  * then find the difference between adjacent element if they are from two different arrays
  * update current mini value if have to
  * [

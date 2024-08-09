@@ -33,7 +33,6 @@
       use the entire string as it is without further slicing because there is no
       more sub sequent call anymore
  *    if 255 or less, return [itself]
-
    how to make problem smaller:
    slice the input string 3 times, each time slice 1 char further:
    if input: '1234567'
@@ -41,15 +40,14 @@
    2: '12'
    3: '123' // if larger than 255 don't recursively call
    then pass the remaining to the subsequent calls
-
    what to do with returns:
  * add current sliced segment to the front of each returned string, and then add
  * this new string to some sort of final array
  * 
  * 
  * what to always return: an array of string "ip"
-
  */
+
 export function isValid(string) {
   const noLeading0 = string.length > 1 ? string[0] !== '0' : true;
   const noEmpty = !!string.length;

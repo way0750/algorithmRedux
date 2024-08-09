@@ -20,7 +20,6 @@ export function threeNumberSum(nums, target) {
                 pairSearchHash[newTarget - subNum] = subNum;
             }
         }
-
         allPatterns.push(...patterns);
     }
     return allPatterns;
