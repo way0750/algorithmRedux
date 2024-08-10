@@ -1,0 +1,20 @@
+12 CSS Architecture
+    - Explain the BEM methodology and its benefits.
+    - What are the principles of OOCSS?
+    - How does SMACSS help in organizing CSS?
+
+6. Float and Clear
+   - What is the float property used for in CSS?
+   - How do you clear floats to prevent layout issues?
+   - What are some common problems associated with using floats for layout?
+
+5. Grid Layout
+   - How do you define a grid container in CSS?
+   - What is the purpose of `grid-template-columns` and `grid-template-rows`?
+   - How do you make an element span multiple columns or rows?
+   - How do you center an element horizontally and vertically using CSS positioning?
+
+4. Flexbox
+   - What are the primary properties of a flex container?
+   - How would you create a flex container that distributes space between items evenly?
+   - Explain the difference between `justify-content` and `align-items`.

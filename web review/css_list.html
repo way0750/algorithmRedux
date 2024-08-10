@@ -1,0 +1,829 @@
+<html>
+    <head>
+        <style>
+            tr:nth-of-type(even) { background-color: #c0c2c4 }
+            td strong {
+                font-weight: 900;
+                font-size: 1.3em;
+                color: Blue;
+            }
+            tr td {
+                padding: 0.5em 0 0.5em 0.5em;
+            }
+        </style>
+        <body>
+        <table>
+            <thead>
+            <tr>
+            <th><strong>CSS Rule</strong></th>
+            <th><strong>Possible Value Types</strong></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td><strong>Box Model</strong></td>
+            <td></td>
+            </tr>
+            <tr>
+            <td><code>width</code></td>
+            <td>Length, Percentage</td>
+            </tr>
+            <tr>
+            <td><code>height</code></td>
+            <td>Length, Percentage</td>
+            </tr>
+            <tr>
+            <td><code>padding</code></td>
+            <td>Length, Percentage</td>
+            </tr>
+            <tr>
+            <td><code>padding-top</code></td>
+            <td>Length, Percentage</td>
+            </tr>
+            <tr>
+            <td><code>padding-right</code></td>
+            <td>Length, Percentage</td>
+            </tr>
+            <tr>
+            <td><code>padding-bottom</code></td>
+            <td>Length, Percentage</td>
+            </tr>
+            <tr>
+            <td><code>padding-left</code></td>
+            <td>Length, Percentage</td>
+            </tr>
+            <tr>
+            <td><code>margin</code></td>
+            <td>Length, Percentage, Auto</td>
+            </tr>
+            <tr>
+            <td><code>margin-top</code></td>
+            <td>Length, Percentage, Auto</td>
+            </tr>
+            <tr>
+            <td><code>margin-right</code></td>
+            <td>Length, Percentage, Auto</td>
+            </tr>
+            <tr>
+            <td><code>margin-bottom</code></td>
+            <td>Length, Percentage, Auto</td>
+            </tr>
+            <tr>
+            <td><code>margin-left</code></td>
+            <td>Length, Percentage, Auto</td>
+            </tr>
+            <tr>
+            <td><code>border</code></td>
+            <td>Border-width Border-style Border-color</td>
+            </tr>
+            <tr>
+            <td><code>border-width</code></td>
+            <td>Thin, Medium, Thick, Length</td>
+            </tr>
+            <tr>
+            <td><code>border-style</code></td>
+            <td>None, Hidden, Dotted, Dashed, Solid, Double, Groove, Ridge, Inset, Outset</td>
+            </tr>
+            <tr>
+            <td><code>border-color</code></td>
+            <td>Color</td>
+            </tr>
+            <tr>
+            <td><code>border-top</code></td>
+            <td>Border-width Border-style Border-color</td>
+            </tr>
+            <tr>
+            <td><code>border-right</code></td>
+            <td>Border-width Border-style Border-color</td>
+            </tr>
+            <tr>
+            <td><code>border-bottom</code></td>
+            <td>Border-width Border-style Border-color</td>
+            </tr>
+            <tr>
+            <td><code>border-left</code></td>
+            <td>Border-width Border-style Border-color</td>
+            </tr>
+            <tr>
+            <td><code>border-radius</code></td>
+            <td>Length, Percentage</td>
+            </tr>
+            <tr>
+            <td><code>box-sizing</code></td>
+            <td>Content-box, Border-box</td>
+            </tr>
+            <tr>
+            <td><code>outline</code></td>
+            <td>Outline-width Outline-style Outline-color</td>
+            </tr>
+            <tr>
+            <td><code>outline-width</code></td>
+            <td>Thin, Medium, Thick, Length</td>
+            </tr>
+            <tr>
+            <td><code>outline-style</code></td>
+            <td>None, Dotted, Dashed, Solid, Double, Groove, Ridge, Inset, Outset</td>
+            </tr>
+            <tr>
+            <td><code>outline-color</code></td>
+            <td>Color</td>
+            </tr>
+            <tr>
+            <td><code>outline-offset</code></td>
+            <td>Length</td>
+            </tr>
+            <tr>
+            <td><strong>Typography</strong></td>
+            <td></td>
+            </tr>
+            <tr>
+            <td><code>font-family</code></td>
+            <td>Font name, Generic family</td>
+            </tr>
+            <tr>
+            <td><code>font-size</code></td>
+            <td>Length, Percentage</td>
+            </tr>
+            <tr>
+            <td><code>font-weight</code></td>
+            <td>Normal, Bold, Bolder, Lighter, 100-900</td>
+            </tr>
+            <tr>
+            <td><code>font-style</code></td>
+            <td>Normal, Italic, Oblique</td>
+            </tr>
+            <tr>
+            <td><code>font-variant</code></td>
+            <td>Normal, Small-caps</td>
+            </tr>
+            <tr>
+            <td><code>font-stretch</code></td>
+            <td>Normal, Wider, Narrower, Ultra-condensed to Ultra-expanded</td>
+            </tr>
+            <tr>
+            <td><code>line-height</code></td>
+            <td>Normal, Number, Length, Percentage</td>
+            </tr>
+            <tr>
+            <td><code>letter-spacing</code></td>
+            <td>Normal, Length</td>
+            </tr>
+            <tr>
+            <td><code>word-spacing</code></td>
+            <td>Normal, Length</td>
+            </tr>
+            <tr>
+            <td><code>text-align</code></td>
+            <td>Left, Right, Center, Justify</td>
+            </tr>
+            <tr>
+            <td><code>text-decoration</code></td>
+            <td>None, Underline, Overline, Line-through, Blink</td>
+            </tr>
+            <tr>
+            <td><code>text-decoration-line</code></td>
+            <td>None, Underline, Overline, Line-through</td>
+            </tr>
+            <tr>
+            <td><code>text-decoration-style</code></td>
+            <td>Solid, Double, Dotted, Dashed, Wavy</td>
+            </tr>
+            <tr>
+            <td><code>text-decoration-color</code></td>
+            <td>Color</td>
+            </tr>
+            <tr>
+            <td><code>text-transform</code></td>
+            <td>None, Capitalize, Uppercase, Lowercase, Full-width</td>
+            </tr>
+            <tr>
+            <td><code>text-indent</code></td>
+            <td>Length, Percentage</td>
+            </tr>
+            <tr>
+            <td><code>text-shadow</code></td>
+            <td>None, h-shadow v-shadow blur-radius color</td>
+            </tr>
+            <tr>
+            <td><code>white-space</code></td>
+            <td>Normal, No-wrap, Pre, Pre-line, Pre-wrap</td>
+            </tr>
+            <tr>
+            <td><code>word-break</code></td>
+            <td>Normal, Break-all, Keep-all</td>
+            </tr>
+            <tr>
+            <td><code>word-wrap</code></td>
+            <td>Normal, Break-word</td>
+            </tr>
+            <tr>
+            <td><strong>Colors and Backgrounds</strong></td>
+            <td></td>
+            </tr>
+            <tr>
+            <td><code>color</code></td>
+            <td>Color</td>
+            </tr>
+            <tr>
+            <td><code>background</code></td>
+            <td>Color, Image, Repeat, Attachment, Position</td>
+            </tr>
+            <tr>
+            <td><code>background-color</code></td>
+            <td>Color</td>
+            </tr>
+            <tr>
+            <td><code>background-image</code></td>
+            <td>URL, None</td>
+            </tr>
+            <tr>
+            <td><code>background-position</code></td>
+            <td>Length, Percentage, Position keywords (top, right, bottom, left, center)</td>
+            </tr>
+            <tr>
+            <td><code>background-size</code></td>
+            <td>Auto, Length, Percentage, Cover, Contain</td>
+            </tr>
+            <tr>
+            <td><code>background-repeat</code></td>
+            <td>Repeat, Repeat-x, Repeat-y, No-repeat</td>
+            </tr>
+            <tr>
+            <td><code>background-attachment</code></td>
+            <td>Scroll, Fixed, Local</td>
+            </tr>
+            <tr>
+            <td><code>background-origin</code></td>
+            <td>Padding-box, Border-box, Content-box</td>
+            </tr>
+            <tr>
+            <td><code>background-clip</code></td>
+            <td>Border-box, Padding-box, Content-box</td>
+            </tr>
+            <tr>
+            <td><code>opacity</code></td>
+            <td>Number (0-1)</td>
+            </tr>
+            <tr>
+            <td><strong>Positioning</strong></td>
+            <td></td>
+            </tr>
+            <tr>
+            <td><code>position</code></td>
+            <td>Static, Relative, Absolute, Fixed, Sticky</td>
+            </tr>
+            <tr>
+            <td><code>top</code></td>
+            <td>Length, Percentage, Auto</td>
+            </tr>
+            <tr>
+            <td><code>right</code></td>
+            <td>Length, Percentage, Auto</td>
+            </tr>
+            <tr>
+            <td><code>bottom</code></td>
+            <td>Length, Percentage, Auto</td>
+            </tr>
+            <tr>
+            <td><code>left</code></td>
+            <td>Length, Percentage, Auto</td>
+            </tr>
+            <tr>
+            <td><code>z-index</code></td>
+            <td>Auto, Number</td>
+            </tr>
+            <tr>
+            <td><code>float</code></td>
+            <td>Left, Right, None</td>
+            </tr>
+            <tr>
+            <td><code>clear</code></td>
+            <td>None, Left, Right, Both</td>
+            </tr>
+            <tr>
+            <td><code>overflow</code></td>
+            <td>Visible, Hidden, Scroll, Auto</td>
+            </tr>
+            <tr>
+            <td><code>overflow-x</code></td>
+            <td>Visible, Hidden, Scroll, Auto</td>
+            </tr>
+            <tr>
+            <td><code>overflow-y</code></td>
+            <td>Visible, Hidden, Scroll, Auto</td>
+            </tr>
+            <tr>
+            <td><code>clip</code></td>
+            <td>Shape, Auto</td>
+            </tr>
+            <tr>
+            <td><strong>Display and Visibility</strong></td>
+            <td></td>
+            </tr>
+            <tr>
+            <td><code>display</code></td>
+            <td>None, Block, Inline, Inline-block, Flex, Grid, Inline-flex, Inline-grid, Inline-table, List-item, Run-in, Table, Table-caption, Table-cell, Table-column, Table-column-group, Table-footer-group, Table-header-group, Table-row, Table-row-group</td>
+            </tr>
+            <tr>
+            <td><code>visibility</code></td>
+            <td>Visible, Hidden, Collapse</td>
+            </tr>
+            <tr>
+            <td><code>flex-direction</code></td>
+            <td>Row, Row-reverse, Column, Column-reverse</td>
+            </tr>
+            <tr>
+            <td><code>flex-wrap</code></td>
+            <td>No-wrap, Wrap, Wrap-reverse</td>
+            </tr>
+            <tr>
+            <td><code>flex-flow</code></td>
+            <td><flex-direction> <flex-wrap></td>
+            </tr>
+            <tr>
+            <td><code>flex-grow</code></td>
+            <td>Number</td>
+            </tr>
+            <tr>
+            <td><code>flex-shrink</code></td>
+            <td>Number</td>
+            </tr>
+            <tr>
+            <td><code>flex-basis</code></td>
+            <td>Length, Percentage, Auto</td>
+            </tr>
+            <tr>
+            <td><code>justify-content</code></td>
+            <td>Flex-start, Flex-end, Center, Space-between, Space-around, Space-evenly</td>
+            </tr>
+            <tr>
+            <td><code>align-items</code></td>
+            <td>Flex-start, Flex-end, Center, Baseline, Stretch</td>
+            </tr>
+            <tr>
+            <td><code>align-content</code></td>
+            <td>Flex-start, Flex-end, Center, Space-between, Space-around, Stretch</td>
+            </tr>
+            <tr>
+            <td><code>order</code></td>
+            <td>Number</td>
+            </tr>
+            <tr>
+            <td><code>align-self</code></td>
+            <td>Auto, Flex-start, Flex-end, Center, Baseline, Stretch</td>
+            </tr>
+            <tr>
+            <td><strong>Grid</strong></td>
+            <td></td>
+            </tr>
+            <tr>
+            <td><code>grid-template-columns</code></td>
+            <td>None, Length, Percentage, Auto, Min-content, Max-content</td>
+            </tr>
+            <tr>
+            <td><code>grid-template-rows</code></td>
+            <td>None, Length, Percentage, Auto, Min-content, Max-content</td>
+            </tr>
+            <tr>
+            <td><code>grid-template-areas</code></td>
+            <td>None, String</td>
+            </tr>
+            <tr>
+            <td><code>grid-column-gap</code></td>
+            <td>Length</td>
+            </tr>
+            <tr>
+            <td><code>grid-row-gap</code></td>
+            <td>Length</td>
+            </tr>
+            <tr>
+            <td><code>gap</code></td>
+            <td>Length</td>
+            </tr>
+            <tr>
+            <td><code>grid-auto-flow</code></td>
+            <td>Row, Column, Dense</td>
+            </tr>
+            <tr>
+            <td><code>grid-auto-columns</code></td>
+            <td>Auto, Length, Percentage, Min-content, Max-content</td>
+            </tr>
+            <tr>
+            <td><code>grid-auto-rows</code></td>
+            <td>Auto, Length, Percentage, Min-content, Max-content</td>
+            </tr>
+            <tr>
+            <td><code>grid-area</code></td>
+            <td>Grid-row-start / Grid-column-start / Grid-row-end / Grid-column-end</td>
+            </tr>
+            <tr>
+            <td><code>grid-column</code></td>
+            <td>Grid-column-start / Grid-column-end</td>
+            </tr>
+            <tr>
+            <td><code>grid-column-start</code></td>
+            <td>Number, Name, Span, Auto</td>
+            </tr>
+            <tr>
+            <td><code>grid-column-end</code></td>
+            <td>Number, Name, Span, Auto</td>
+            </tr>
+            <tr>
+            <td><code>grid-row</code></td>
+            <td>Grid-row-start / Grid-row-end</td>
+            </tr>
+            <tr>
+            <td><code>grid-row-start</code></td>
+            <td>Number, Name, Span, Auto</td>
+            </tr>
+            <tr>
+            <td><code>grid-row-end</code></td>
+            <td>Number, Name, Span, Auto</td>
+            </tr>
+            <tr>
+            <td><code>justify-items</code></td>
+            <td>Start, End, Center, Stretch</td>
+            </tr>
+            <tr>
+            <td><code>align-items</code></td>
+            <td>Start, End, Center, Stretch</td>
+            </tr>
+            <tr>
+            <td><code>place-items</code></td>
+            <td><align-items> <justify-items></td>
+            </tr>
+            <tr>
+            <td><code>justify-content</code></td>
+            <td>Start, End, Center, Space-between, Space-around, Space-evenly</td>
+            </tr>
+            <tr>
+            <td><code>align-content</code></td>
+            <td>Start, End, Center, Space-between, Space-around, Stretch</td>
+            </tr>
+            <tr>
+            <td><code>place-content</code></td>
+            <td><align-content> <justify-content></td>
+            </tr>
+            <tr>
+            <td><strong>Transitions and Animations</strong></td>
+            <td></td>
+            </tr>
+            <tr>
+            <td><code>transition</code></td>
+            <td><transition-property> <transition-duration> <transition-timing-function> <transition-delay></td>
+            </tr>
+            <tr>
+            <td><code>transition-property</code></td>
+            <td>None, All, Property</td>
+            </tr>
+            <tr>
+            <td><code>transition-duration</code></td>
+            <td>Time</td>
+            </tr>
+            <tr>
+            <td><code>transition-timing-function</code></td>
+            <td>Ease, Linear, Ease-in, Ease-out, Ease-in-out, Step-start, Step-end, Steps, Cubic-bezier</td>
+            </tr>
+            <tr>
+            <td><code>transition-delay</code></td>
+            <td>Time</td>
+            </tr>
+            <tr>
+            <td><code>animation</code></td>
+            <td><animation-name> <animation-duration> <animation-timing-function> <animation-delay> <animation-iteration-count> <animation-direction> <animation-fill-mode> <animation-play-state></td>
+            </tr>
+            <tr>
+            <td><code>animation-name</code></td>
+            <td>None, Keyframe-name</td>
+            </tr>
+            <tr>
+            <td><code>animation-duration</code></td>
+            <td>Time</td>
+            </tr>
+            <tr>
+            <td><code>animation-timing-function</code></td>
+            <td>Ease, Linear, Ease-in, Ease-out, Ease-in-out, Step-start, Step-end, Steps, Cubic-bezier</td>
+            </tr>
+            <tr>
+            <td><code>animation-delay</code></td>
+            <td>Time</td>
+            </tr>
+            <tr>
+            <td><code>animation-iteration-count</code></td>
+            <td>Infinite, Number</td>
+            </tr>
+            <tr>
+            <td><code>animation-direction</code></td>
+            <td>Normal, Reverse, Alternate, Alternate-reverse</td>
+            </tr>
+            <tr>
+            <td><code>animation-fill-mode</code></td>
+            <td>None, Forwards, Backwards, Both</td>
+            </tr>
+            <tr>
+            <td><code>animation-play-state</code></td>
+            <td>Running, Paused</td>
+            </tr>
+            <tr>
+            <td><strong>Pseudo-classes and Pseudo-elements</strong></td>
+            <td></td>
+            </tr>
+            <tr>
+            <td><code>:hover</code></td>
+            <td>Applied when user designates an element (with some pointing device), but does not activate it</td>
+            </tr>
+            <tr>
+            <td><code>:focus</code></td>
+            <td>Applied when an element has focus</td>
+            </tr>
+            <tr>
+            <td><code>:active</code></td>
+            <td>Applied while an element is being activated by the user</td>
+            </tr>
+            <tr>
+            <td><code>:visited</code></td>
+            <td>Applied once the link has been visited</td>
+            </tr>
+            <tr>
+            <td><code>:link</code></td>
+            <td>Applied to all unvisited links</td>
+            </tr>
+            <tr>
+            <td><code>:first-child</code></td>
+            <td>Matches the first element among a group of sibling elements</td>
+            </tr>
+            <tr>
+            <td><code>:last-child</code></td>
+            <td>Matches the last element among a group of sibling elements</td>
+            </tr>
+            <tr>
+            <td><code>:nth-child(n)</code></td>
+            <td>Matches elements based on their position in a group of siblings</td>
+            </tr>
+            <tr>
+            <td><code>:nth-of-type(n)</code></td>
+            <td>Matches elements of a given type based on their position among siblings</td>
+            </tr>
+            <tr>
+            <td><code>:first-of-type</code></td>
+            <td>Matches the first element of a given type among a group of sibling elements</td>
+            </tr>
+            <tr>
+            <td><code>:last-of-type</code></td>
+            <td>Matches the last element of a given type among a group of sibling elements</td>
+            </tr>
+            <tr>
+            <td><code>::before</code></td>
+            <td>Inserts content before an element’s content</td>
+            </tr>
+            <tr>
+            <td><code>::after</code></td>
+            <td>Inserts content after an element’s content</td>
+            </tr>
+            <tr>
+            <td><code>::first-letter</code></td>
+            <td>Selects the first letter of the first line of a block-level element</td>
+            </tr>
+            <tr>
+            <td><code>::first-line</code></td>
+            <td>Selects the first line of a block-level element</td>
+            </tr>
+            <tr>
+            <td><code>:not(selector)</code></td>
+            <td>Selects every element that is not a specified element</td>
+            </tr>
+            <tr>
+            <td><strong>CSS Variables (Custom Properties)</strong></td>
+            <td></td>
+            </tr>
+            <tr>
+            <td><code>--variable-name</code></td>
+            <td>Custom property name</td>
+            </tr>
+            <tr>
+            <td><code>var(--variable-name)</code></td>
+            <td>Custom property usage</td>
+            </tr>
+            <tr>
+            <td><strong>Media Queries</strong></td>
+            <td></td>
+            </tr>
+            <tr>
+            <td><code>@media</code></td>
+            <td>Defines media queries</td>
+            </tr>
+            <tr>
+            <td><code>min-width</code></td>
+            <td>Minimum width of the viewport</td>
+            </tr>
+            <tr>
+            <td><code>max-width</code></td>
+            <td>Maximum width of the viewport</td>
+            </tr>
+            <tr>
+            <td><code>orientation</code></td>
+            <td>Portrait, Landscape</td>
+            </tr>
+            <tr>
+            <td><code>aspect-ratio</code></td>
+            <td>Ratio of the width to the height of the viewport</td>
+            </tr>
+            <tr>
+            <td><strong>Responsive Design</strong></td>
+            <td></td>
+            </tr>
+            <tr>
+            <td><code>viewport</code></td>
+            <td>Width, Initial-scale, Minimum-scale, Maximum-scale, User-scalable</td>
+            </tr>
+            <tr>
+            <td><code>flexbox</code></td>
+            <td>Display, Flex-direction, Justify-content, Align-items</td>
+            </tr>
+            <tr>
+            <td><code>grid</code></td>
+            <td>Display, Grid-template-columns, Grid-template-rows</td>
+            </tr>
+            <tr>
+            <td><code>media queries</code></td>
+            <td>Min-width, Max-width, Orientation, Aspect-ratio</td>
+            </tr>
+            <tr>
+            <td><code>rem</code> and <code>em</code> units</td>
+            <td>Font size relative units</td>
+            </tr>
+            <tr>
+            <td><code>vh</code> and <code>vw</code> units</td>
+            <td>Viewport height and width units</td>
+            </tr>
+            <tr>
+            <td><strong>Miscellaneous</strong></td>
+            <td></td>
+            </tr>
+            <tr>
+            <td><code>box-shadow</code></td>
+            <td>None, h-shadow v-shadow blur-radius color inset</td>
+            </tr>
+            <tr>
+            <td><code>text-shadow</code></td>
+            <td>None, h-shadow v-shadow blur-radius color</td>
+            </tr>
+            <tr>
+            <td><code>cursor</code></td>
+            <td>Auto, Default, None, Context-menu, Help, Pointer, Progress, Wait, Cell, Crosshair, Text, Vertical-text, Alias, Copy, Move, No-drop, Not-allowed, Grab, Grabbing, All-scroll, Col-resize, Row-resize, N-resize, E-resize, S-resize, W-resize, Ne-resize, Nw-resize, Se-resize, Sw-resize, Ew-resize, Ns-resize, Nesw-resize, Nwse-resize, Zoom-in, Zoom-out</td>
+            </tr>
+            <tr>
+            <td><code>pointer-events</code></td>
+            <td>Auto, None, VisiblePainted, VisibleFill, VisibleStroke, Visible, Painted, Fill, Stroke, All, Inherit</td>
+            </tr>
+            <tr>
+            <td><code>filter</code></td>
+            <td>None, Blur, Brightness, Contrast, Drop-shadow, Grayscale, Hue-rotate, Invert, Opacity, Saturate, Sepia</td>
+            </tr>
+            <tr>
+            <td><code>backdrop-filter</code></td>
+            <td>None, Blur, Brightness, Contrast, Drop-shadow, Grayscale, Hue-rotate, Invert, Opacity, Saturate, Sepia</td>
+            </tr>
+            <tr>
+            <td><code>transform</code></td>
+            <td>None, Matrix, Matrix3d, Translate, Translate3d, TranslateX, TranslateY, TranslateZ, Scale, Scale3d, ScaleX, ScaleY, ScaleZ, Rotate, Rotate3d, RotateX, RotateY, RotateZ, Skew, SkewX, SkewY, Perspective</td>
+            </tr>
+            <tr>
+            <td><code>transform-origin</code></td>
+            <td>X-axis, Y-axis, Z-axis</td>
+            </tr>
+            <tr>
+            <td><code>perspective</code></td>
+            <td>None, Length</td>
+            </tr>
+            <tr>
+            <td><code>will-change</code></td>
+            <td>Auto, Scroll-position, Contents, Transform</td>
+            </tr>
+            <tr>
+            <td><code>object-fit</code></td>
+            <td>Fill, Contain, Cover, None, Scale-down</td>
+            </tr>
+            <tr>
+            <td><code>object-position</code></td>
+            <td>Length, Percentage</td>
+            </tr>
+            <tr>
+            <td><code>visibility</code></td>
+            <td>Visible, Hidden, Collapse</td>
+            </tr>
+            <tr>
+            <td><code>content</code></td>
+            <td>Normal, None, String, Open-quote, Close-quote, No-open-quote, No-close-quote, Url, Counter, Attr</td>
+            </tr>
+            <tr>
+            <td><code>clip-path</code></td>
+            <td>None, Inset, Circle, Ellipse, Polygon, Path, Svg</td>
+            </tr>
+            <tr>
+            <td><code>appearance</code></td>
+            <td>None, Auto</td>
+            </tr>
+            <tr>
+            <td><code>user-select</code></td>
+            <td>None, Auto, Text, Contain, All</td>
+            </tr>
+            <tr>
+            <td><code>resize</code></td>
+            <td>None, Both, Horizontal, Vertical, Block, Inline</td>
+            </tr>
+            <tr>
+            <td><code>scroll-behavior</code></td>
+            <td>Auto, Smooth</td>
+            </tr>
+            <tr>
+            <td><code>writing-mode</code></td>
+            <td>Horizontal-tb, Vertical-rl, Vertical-lr</td>
+            </tr>
+            <tr>
+            <td><code>direction</code></td>
+            <td>Ltr, Rtl</td>
+            </tr>
+            <tr>
+            <td><strong>Advanced Layout Techniques</strong></td>
+            <td></td>
+            </tr>
+            <tr>
+            <td><strong>CSS Grid</strong></td>
+            <td>Grid-template-columns, Grid-template-rows, Grid-template-areas, Grid-column-gap, Grid-row-gap, Grid-auto-flow, Grid-auto-columns, Grid-auto-rows, Grid-area, Grid-column, Grid-column-start, Grid-column-end, Grid-row, Grid-row-start, Grid-row-end, Justify-items, Align-items, Place-items, Justify-content, Align-content, Place-content</td>
+            </tr>
+            <tr>
+            <td><strong>Flexbox</strong></td>
+            <td>Display, Flex-direction, Flex-wrap, Flex-flow, Justify-content, Align-items, Align-content, Order, Flex-grow, Flex-shrink, Flex-basis, Align-self</td>
+            </tr>
+            <tr>
+            <td><strong>Positioning</strong></td>
+            <td>Absolute, Relative, Fixed, Sticky</td>
+            </tr>
+            <tr>
+            <td><strong>Multi-Column Layout</strong></td>
+            <td>Column-count, Column-gap, Column-rule, Column-rule-width, Column-rule-style, Column-rule-color, Column-span, Column-width</td>
+            </tr>
+            <tr>
+            <td><strong>Advanced Animations and Transitions</strong></td>
+            <td></td>
+            </tr>
+            <tr>
+            <td><strong>Keyframes</strong></td>
+            <td>@keyframes</td>
+            </tr>
+            <tr>
+            <td><strong>Performance</strong></td>
+            <td>Optimize animations for performance, use of hardware acceleration</td>
+            </tr>
+            <tr>
+            <td><strong>Browser Compatibility and CSS Frameworks</strong></td>
+            <td></td>
+            </tr>
+            <tr>
+            <td><strong>Vendor Prefixes</strong></td>
+            <td>-webkit-, -moz-, -ms-, -o-</td>
+            </tr>
+            <tr>
+            <td><strong>CSS Resets</strong></td>
+            <td>Normalize.css, CSS resets</td>
+            </tr>
+            <tr>
+            <td><strong>CSS Frameworks</strong></td>
+            <td>Bootstrap, Tailwind CSS, Foundation, Bulma</td>
+            </tr>
+            <tr>
+            <td><strong>Preprocessors and Build Tools</strong></td>
+            <td></td>
+            </tr>
+            <tr>
+            <td><strong>CSS Preprocessors</strong></td>
+            <td>Sass, LESS, Stylus</td>
+            </tr>
+            <tr>
+            <td><strong>Build Tools</strong></td>
+            <td>Webpack, Gulp, Grunt</td>
+            </tr>
+            <tr>
+            <td><strong>Best Practices and Standards</strong></td>
+            <td></td>
+            </tr>
+            <tr>
+            <td><strong>BEM Methodology</strong></td>
+            <td>Block Element Modifier naming convention</td>
+            </tr>
+            <tr>
+            <td><strong>Accessibility</strong></td>
+            <td>Ensuring CSS supports accessible web design</td>
+            </tr>
+            <tr>
+            <td><strong>Cross-Browser Testing</strong></td>
+            <td>Tools and techniques for cross-browser compatibility</td>
+            </tr>
+            </tbody>
+            </table>
+        </body>
+    </head>
+</html>
+
+    
