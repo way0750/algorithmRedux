@@ -60,6 +60,38 @@ export function findAllIPs(numStr: string, minStrLength: number = 3, maxStrLengt
   return patterns;
 }
 
+function findAllIPs002 (numStr, chunkCount = 4, cache = {}) {
+  const key = `${numStr}@${chunkCount}`;
+  if (cache[key]) {
+    return cache[key];
+  }
+  if (chunkCount === 1) {
+    let result;
+    if (+numStr <= 256 && numStr.length && numStr.length <= 3) {
+      result = [numStr];
+    } else {
+      result = [];
+    }
+    cache[key] = result;
+    return result;
+  }
+  const patterns = [];
+  const loopLength = Math.min(3, numStr.length);
+  for (let i = 0; i < loopLength; i++) {
+    const curNum = numStr.slice(0, i+1);
+    if (+curNum <= 255) {
+      const restStr = numStr.slice(i+1);
+      const subPatterns = findAllIPs002(restStr, chunkCount-1, cache);
+      subPatterns.forEach((subPattern) => {
+        const pattern = [curNum, ...subPattern].join('.');
+        patterns.push(pattern);
+      });
+    }
+  }
+  cache[key] = patterns;
+  return patterns;
+}
+
 describe('recover all IPs', () => {
   it('should return for the test example above', () => {
     const numStr = "25525511135";

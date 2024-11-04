@@ -19,7 +19,30 @@
  * add number to each index with the number of the length of the most frequent group
  */
 
-function scheduler(arr, n) {
+const scheduler = (arr, n) => {
+  const charGroup = {};
+  arr.forEach((char) => {
+    charGroup[char] = charGroup[char] || 0;
+    charGroup[char]++;
+  });
+  const freqs = Object.values(charGroup).sort((a: number, b: number) => b - a);
+  let slength = 0;
+  while (freqs.length) {
+    const firstFreq: number = freqs.shift();
+    const fillterCount = (firstFreq-1) * n;
+    let additional = fillterCount;
+    while (additional > 0 && freqs.length) {
+      additional -= freqs.shift();
+    }
+    if (additional < 0) {
+      freqs.unshift(-additional);
+    }
+    slength += (firstFreq + fillterCount);
+  }
+  return slength;
+}
+
+function scheduler001(arr, n) {
   const frequency = {};
   arr.forEach((char) => {
     frequency[char] = frequency[char] || 0;

@@ -58,7 +58,90 @@ function makeIsToeplitzMatrixFunc() {
   };
 }
 
+const flattenArray = (arr) => {
+  for (let i = arr.length-1; i > -1; i--) {
+    const ele = arr[i];
+    if (ele.constructor === Array) {
+      const flattenSubArr = flattenArray(ele);
+      arr.splice(i, 1, ...flattenSubArr);
+    }
+  }
+  return arr;
+}
+
+class Heap {
+  heap: Array<any>;
+  constructor() {
+    this.heap = [];
+  }
+  insert(num) {
+    this.heap.push(num);
+    let curIndex = this.heap.length - 1;
+    let parentIndex = Math.floor(( curIndex - 1) / 2);
+    while (this.heap[curIndex] < this.heap[parentIndex]) {
+      const temp = this.heap[curIndex];
+      this.heap[curIndex] =this.heap[parentIndex];
+      this.heap[parentIndex] = temp;
+      curIndex = parentIndex;
+      parentIndex = Math.floor(( curIndex - 1) / 2);
+    }
+  }
+
+  remove() {
+    if (!this.heap.length) return undefined;
+    const firstEle = this.heap[0];
+    this.heap[0] = this.heap[this.heap.length-1];
+    this.heap.pop();
+    let curIndex = 0;
+    let leftChild = 1;
+    let rightChild = 2;
+    while (this.heap[curIndex] > this.heap[leftChild] || this.heap[curIndex] > this.heap[rightChild] ) {
+      const nextChildIndex = this.heap[rightChild] > this.heap[leftChild] ? leftChild : rightChild;
+      const temp = this.heap[curIndex];
+      this.heap[curIndex] = this.heap[nextChildIndex];
+      this.heap[nextChildIndex] = temp;
+      curIndex = nextChildIndex;
+      leftChild = curIndex * 2 + 1;
+      rightChild = curIndex * 2 + 2;
+    }
+
+    return firstEle;
+
+  }
+}
+
 describe('isToeplitzMatrix', () => {
+  it.only('test minheap', () => {
+    const heap = new Heap;
+    heap.insert(9);
+    heap.insert(8);
+    heap.insert(7);
+    heap.insert(4);
+    heap.insert(6);
+    heap.insert(5);
+    heap.insert(3);
+    heap.insert(2);
+    heap.insert(1);
+    expect(heap.remove()).to.equal(1);
+    expect(heap.remove()).to.equal(2);
+    expect(heap.remove()).to.equal(3);
+    expect(heap.remove()).to.equal(4);
+    expect(heap.remove()).to.equal(5);
+    expect(heap.remove()).to.equal(6);
+    expect(heap.remove()).to.equal(7);
+    expect(heap.remove()).to.equal(8);
+    expect(heap.remove()).to.equal(9);
+  });
+  it('should flatten array', () => {
+    const arr = [
+      1,2,3,
+      [1,2,3],
+      1,2,3,
+      [4,5,[6,7,[8,1,2,3,4,[5,6,7,8]]]]
+    ];
+    const result = flattenArray(arr);
+    expect(result).to.equal([])
+  });
   it('should return true', () => {
     const matrix = [
       [1,2,3,4,5],

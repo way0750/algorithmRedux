@@ -21,6 +21,23 @@ Note that the answer must be a substring, "pwke" is a subsequence and not a
 substring.
 */
 
+const lengthOfLongestSubstring = (s) => {
+  const cache = {};
+  let curMax = 0;
+  let backIndex = 0;
+  for (let i = 0; i < s.length; i++) {
+    const char = s[i];
+    cache[char] = cache[char] || 0;
+    cache[char]++
+    while (cache[char] > 1) {
+      const backChar = s[backIndex++];
+      cache[backChar]--;
+    }
+    curMax = Math.max(curMax, i-backIndex+1);
+  }
+  return curMax;
+}
+
 /**
  * @param {string} s
  * @return {number}
@@ -31,7 +48,7 @@ substring.
  whenever foundRepeatChar is true, move B and reduce frequency count of current char by 1, whenever the value is still 1 after reducing, that means we have reduce the only repeated char so far in this B..A interval, set foundRepeaetChar to false so A can move again
  */
 
-function lengthOfLongestSubstring(s) {
+function lengthOfLongestSubstring001(s) {
   let A = -1;
   let B = -1;
   let curMax = 0;
@@ -69,7 +86,7 @@ describe('longest unique sub string', () => {
     const str = 'abcabcbb';
     expect(lengthOfLongestSubstring(str)).to.eql(3);
   });
-  it('should work with bbbbbabcds', () => {
+  it.only('should work with bbbbbabcds', () => {
     const str = 'bbbbbabcds';
     expect(lengthOfLongestSubstring(str)).to.eql(5);
   });
