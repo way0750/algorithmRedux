@@ -1,0 +1,771 @@
+<html>
+  <head>
+    <style>
+            tr:nth-of-type(even) { background-color: #c0c2c4 }
+            td strong {
+                font-weight: 900;
+                font-size: 1.3em;
+                color: Blue;
+            }
+            tr td {
+                padding: 0.5em 0 0.5em 0.5em;
+            }
+    </style>
+  </head>
+  <body>
+    <h1 id="commonly-used-html-tags">Commonly Used HTML Tags</h1>
+    <h2 id="document-structure">Document Structure</h2>
+    <table>
+      <thead>
+        <tr>
+          <th><strong>Tag</strong></th>
+          <th><strong>Description</strong></th>
+          <th><strong>Attributes and Values</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>&lt;html&gt;</code></td>
+          <td>The root element of an HTML document.</td>
+          <td>
+            <code>lang</code>: Language code (e.g., <code>en</code>,
+            <code>fr</code>)
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;head&gt;</code></td>
+          <td>Contains meta-information about the document.</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><code>&lt;body&gt;</code></td>
+          <td>Contains the visible content of the document.</td>
+          <td>
+            <code>onload</code>: JavaScript code <br />
+            <code>onunload</code>: JavaScript code
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;title&gt;</code></td>
+          <td>
+            Specifies the title of the document, shown in the browser&#39;s
+            title bar or tab.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="text-content">Text Content</h2>
+    <table>
+      <thead>
+        <tr>
+          <th><strong>Tag</strong></th>
+          <th><strong>Description</strong></th>
+          <th><strong>Attributes and Values</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>&lt;p&gt;</code></td>
+          <td>Defines a paragraph.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;h1&gt; to &lt;h6&gt;</code></td>
+          <td>
+            Defines HTML headings, with <code>&lt;h1&gt;</code> being the
+            highest and <code>&lt;h6&gt;</code> the lowest.
+          </td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;a&gt;</code></td>
+          <td>Defines a hyperlink.</td>
+          <td>
+            <code>href</code>: URL <br />
+            <code>target</code>: <code>_self</code>, <code>_blank</code>,
+            <code>_parent</code>, <code>_top</code> <br />
+            <code>rel</code>: <code>nofollow</code>, <code>noopener</code>,
+            <code>noreferrer</code> <br />
+            <code>download</code>: filename <br />
+            <code>hreflang</code>: Language code <br />
+            <code>type</code>: MIME type
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;span&gt;</code></td>
+          <td>Defines a section of text with no specific meaning.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;strong&gt;</code></td>
+          <td>Defines important text.</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><code>&lt;em&gt;</code></td>
+          <td>Defines emphasized text.</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><code>&lt;br&gt;</code></td>
+          <td>Inserts a single line break.</td>
+          <td>
+            <code>clear</code>: <code>left</code>, <code>right</code>,
+            <code>all</code>, <code>none</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;hr&gt;</code></td>
+          <td>Defines a thematic change in the content.</td>
+          <td>
+            <code>size</code>: Number <br />
+            <code>width</code>: Length, Percentage <br />
+            <code>align</code>: <code>left</code>, <code>center</code>,
+            <code>right</code> <br />
+            <code>noshade</code>: <code>noshade</code>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="lists">Lists</h2>
+    <table>
+      <thead>
+        <tr>
+          <th><strong>Tag</strong></th>
+          <th><strong>Description</strong></th>
+          <th><strong>Attributes and Values</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>&lt;ul&gt;</code></td>
+          <td>Defines an unordered list.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;ol&gt;</code></td>
+          <td>Defines an ordered list.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles <br />
+            <code>start</code>: Number <br />
+            <code>type</code>: <code>1</code>, <code>A</code>, <code>a</code>,
+            <code>I</code>, <code>i</code> <br />
+            <code>reversed</code>: <code>true</code>, <code>false</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;li&gt;</code></td>
+          <td>Defines a list item.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles <br />
+            <code>value</code>: Number
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="forms">Forms</h2>
+    <table>
+      <thead>
+        <tr>
+          <th><strong>Tag</strong></th>
+          <th><strong>Description</strong></th>
+          <th><strong>Attributes and Values</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>&lt;form&gt;</code></td>
+          <td>Defines an HTML form for user input.</td>
+          <td>
+            <code>action</code>: URL <br />
+            <code>method</code>: <code>get</code>, <code>post</code> <br />
+            <code>enctype</code>:
+            <code>application/x-www-form-urlencoded</code>,
+            <code>multipart/form-data</code>, <code>text/plain</code> <br />
+            <code>autocomplete</code>: <code>on</code>, <code>off</code> <br />
+            <code>novalidate</code>: <code>novalidate</code> <br />
+            <code>target</code>: <code>_self</code>, <code>_blank</code>,
+            <code>_parent</code>, <code>_top</code> <br />
+            <code>name</code>: Text
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;input&gt;</code></td>
+          <td>Defines an input control.</td>
+          <td>
+            <code>type</code>: <code>text</code>, <code>password</code>,
+            <code>submit</code>, <code>reset</code>, <code>radio</code>,
+            <code>checkbox</code>, <code>button</code>, <code>color</code>,
+            <code>date</code>, <code>datetime-local</code>, <code>email</code>,
+            <code>file</code>, <code>hidden</code>, <code>image</code>,
+            <code>month</code>, <code>number</code>, <code>range</code>,
+            <code>search</code>, <code>tel</code>, <code>time</code>,
+            <code>url</code>, <code>week</code> <br />
+            <code>name</code>: Text <br />
+            <code>value</code>: Text <br />
+            <code>placeholder</code>: Text <br />
+            <code>required</code>: <code>required</code> <br />
+            <code>autofocus</code>: <code>autofocus</code> <br />
+            <code>disabled</code>: <code>disabled</code> <br />
+            <code>readonly</code>: <code>readonly</code> <br />
+            <code>min</code>: Number <br />
+            <code>max</code>: Number <br />
+            <code>step</code>: Number <br />
+            <code>multiple</code>: <code>multiple</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;textarea&gt;</code></td>
+          <td>Defines a multiline input control (text area).</td>
+          <td>
+            <code>name</code>: Text <br />
+            <code>rows</code>: Number <br />
+            <code>cols</code>: Number <br />
+            <code>placeholder</code>: Text <br />
+            <code>required</code>: <code>required</code> <br />
+            <code>disabled</code>: <code>disabled</code> <br />
+            <code>readonly</code>: <code>readonly</code> <br />
+            <code>maxlength</code>: Number <br />
+            <code>wrap</code>: <code>soft</code>, <code>hard</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;button&gt;</code></td>
+          <td>Defines a clickable button.</td>
+          <td>
+            <code>type</code>: <code>button</code>, <code>submit</code>,
+            <code>reset</code> <br />
+            <code>name</code>: Text <br />
+            <code>value</code>: Text <br />
+            <code>disabled</code>: <code>disabled</code> <br />
+            <code>autofocus</code>: <code>autofocus</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;select&gt;</code></td>
+          <td>Defines a drop-down list.</td>
+          <td>
+            <code>name</code>: Text <br />
+            <code>size</code>: Number <br />
+            <code>multiple</code>: <code>multiple</code> <br />
+            <code>disabled</code>: <code>disabled</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;option&gt;</code></td>
+          <td>Defines an option in a drop-down list.</td>
+          <td>
+            <code>value</code>: Text <br />
+            <code>selected</code>: <code>selected</code> <br />
+            <code>disabled</code>: <code>disabled</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;label&gt;</code></td>
+          <td>Defines a label for an <code>&lt;input&gt;</code> element.</td>
+          <td><code>for</code>: Element ID</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="tables">Tables</h2>
+    <table>
+      <thead>
+        <tr>
+          <th><strong>Tag</strong></th>
+          <th><strong>Description</strong></th>
+          <th><strong>Attributes and Values</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>&lt;table&gt;</code></td>
+          <td>Defines a table.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles <br />
+            <code>border</code>: Number <br />
+            <code>cellpadding</code>: Number <br />
+            <code>cellspacing</code>: Number <br />
+            <code>summary</code>: Text
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;tr&gt;</code></td>
+          <td>Defines a row in a table.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;th&gt;</code></td>
+          <td>Defines a header cell in a table.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles <br />
+            <code>scope</code>: <code>row</code>, <code>col</code>,
+            <code>rowgroup</code>, <code>colgroup</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;td&gt;</code></td>
+          <td>Defines a cell in a table.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles <br />
+            <code>colspan</code>: Number <br />
+            <code>rowspan</code>: Number
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;caption&gt;</code></td>
+          <td>Defines a table caption.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;colgroup&gt;</code></td>
+          <td>
+            Specifies a group of one or more columns in a table for formatting.
+          </td>
+          <td><code>span</code>: Number</td>
+        </tr>
+        <tr>
+          <td><code>&lt;col&gt;</code></td>
+          <td>
+            Specifies column properties for each column within a
+            <code>&lt;colgroup&gt;</code>.
+          </td>
+          <td><code>span</code>: Number</td>
+        </tr>
+      </tbody>
+    </table>
+    <h1 id="less-commonly-used-html-tags">Less Commonly Used HTML Tags</h1>
+    <h2 id="multimedia">Multimedia</h2>
+    <table>
+      <thead>
+        <tr>
+          <th><strong>Tag</strong></th>
+          <th><strong>Description</strong></th>
+          <th><strong>Attributes and Values</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>&lt;img&gt;</code></td>
+          <td>Embeds an image in the document.</td>
+          <td>
+            <code>src</code>: URL <br />
+            <code>alt</code>: Text <br />
+            <code>width</code>: Number <br />
+            <code>height</code>: Number <br />
+            <code>title</code>: Text <br />
+            <code>longdesc</code>: URL <br />
+            <code>loading</code>: <code>lazy</code>, <code>eager</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;audio&gt;</code></td>
+          <td>Embeds sound content.</td>
+          <td>
+            <code>src</code>: URL <br />
+            <code>controls</code>: <code>controls</code> <br />
+            <code>autoplay</code>: <code>autoplay</code> <br />
+            <code>loop</code>: <code>loop</code> <br />
+            <code>muted</code>: <code>muted</code> <br />
+            <code>preload</code>: <code>none</code>, <code>metadata</code>,
+            <code>auto</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;video&gt;</code></td>
+          <td>Embeds video content.</td>
+          <td>
+            <code>src</code>: URL <br />
+            <code>controls</code>: <code>controls</code> <br />
+            <code>autoplay</code>: <code>autoplay</code> <br />
+            <code>loop</code>: <code>loop</code> <br />
+            <code>muted</code>: <code>muted</code> <br />
+            <code>preload</code>: <code>none</code>, <code>metadata</code>,
+            <code>auto</code> <br />
+            <code>width</code>: Number <br />
+            <code>height</code>: Number
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;iframe&gt;</code></td>
+          <td>Embeds another HTML page into the current page.</td>
+          <td>
+            <code>src</code>: URL <br />
+            <code>width</code>: Number <br />
+            <code>height</code>: Number <br />
+            <code>name</code>: Text <br />
+            <code>sandbox</code>: <code>allow-forms</code>,
+            <code>allow-modals</code>, <code>allow-orientation-lock</code>,
+            <code>allow-pointer-lock</code>, <code>allow-popups</code>,
+            <code>allow-popups-to-escape-sandbox</code>,
+            <code>allow-presentation</code>, <code>allow-same-origin</code>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="forms-advanced-">Forms (Advanced)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th><strong>Tag</strong></th>
+          <th><strong>Description</strong></th>
+          <th><strong>Attributes and Values</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>&lt;fieldset&gt;</code></td>
+          <td>Groups related elements in a form.</td>
+          <td>
+            <code>disabled</code>: <code>disabled</code> <br />
+            <code>form</code>: Form ID <br />
+            <code>name</code>: Text
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;legend&gt;</code></td>
+          <td>Defines a caption for a <code>&lt;fieldset&gt;</code>.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;datalist&gt;</code></td>
+          <td>
+            Specifies a list of pre-defined options for an
+            <code>&lt;input&gt;</code> element.
+          </td>
+          <td><code>id</code>: Text</td>
+        </tr>
+        <tr>
+          <td><code>&lt;output&gt;</code></td>
+          <td>Represents the result of a calculation.</td>
+          <td>
+            <code>for</code>: Element IDs <br />
+            <code>form</code>: Form ID <br />
+            <code>name</code>: Text
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;progress&gt;</code></td>
+          <td>Represents the completion progress of a task.</td>
+          <td>
+            <code>value</code>: Number <br />
+            <code>max</code>: Number
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;meter&gt;</code></td>
+          <td>Represents a scalar measurement within a known range.</td>
+          <td>
+            <code>value</code>: Number <br />
+            <code>min</code>: Number <br />
+            <code>max</code>: Number <br />
+            <code>low</code>: Number <br />
+            <code>high</code>: Number <br />
+            <code>optimum</code>: Number
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="semantic-elements">Semantic Elements</h2>
+    <table>
+      <thead>
+        <tr>
+          <th><strong>Tag</strong></th>
+          <th><strong>Description</strong></th>
+          <th><strong>Attributes and Values</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>&lt;article&gt;</code></td>
+          <td>Defines an article.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;section&gt;</code></td>
+          <td>Defines a section.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;nav&gt;</code></td>
+          <td>Defines navigation links.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;aside&gt;</code></td>
+          <td>Defines content aside from the page content.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;header&gt;</code></td>
+          <td>Defines a header for a document or section.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;footer&gt;</code></td>
+          <td>Defines a footer for a document or section.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;main&gt;</code></td>
+          <td>Specifies the main content of a document.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;figure&gt;</code></td>
+          <td>Specifies self-contained content.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;figcaption&gt;</code></td>
+          <td>Defines a caption for a <code>&lt;figure&gt;</code>.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;mark&gt;</code></td>
+          <td>Defines marked/highlighted text.</td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;time&gt;</code></td>
+          <td>Defines a specific time (or datetime).</td>
+          <td><code>datetime</code>: Date and time</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="metadata">Metadata</h2>
+    <table>
+      <thead>
+        <tr>
+          <th><strong>Tag</strong></th>
+          <th><strong>Description</strong></th>
+          <th><strong>Attributes and Values</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>&lt;meta&gt;</code></td>
+          <td>Defines metadata about an HTML document.</td>
+          <td>
+            <code>name</code>: Text <br />
+            <code>content</code>: Text <br />
+            <code>charset</code>: Character encoding (e.g., <code>UTF-8</code>)
+            <br />
+            <code>http-equiv</code>: <code>content-type</code>,
+            <code>default-style</code>, <code>refresh</code>,
+            <code>set-cookie</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;link&gt;</code></td>
+          <td>
+            Defines the relationship between a document and an external
+            resource.
+          </td>
+          <td>
+            <code>rel</code>: <code>alternate</code>, <code>author</code>,
+            <code>canonical</code>, <code>help</code>, <code>icon</code>,
+            <code>license</code>, <code>next</code>, <code>pingback</code>,
+            <code>prefetch</code>, <code>preload</code>, <code>prev</code>,
+            <code>search</code>, <code>stylesheet</code> <br />
+            <code>href</code>: URL <br />
+            <code>type</code>: MIME type <br />
+            <code>media</code>: Media query <br />
+            <code>hreflang</code>: Language code <br />
+            <code>sizes</code>: Icon size
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="scripts">Scripts</h2>
+    <table>
+      <thead>
+        <tr>
+          <th><strong>Tag</strong></th>
+          <th><strong>Description</strong></th>
+          <th><strong>Attributes and Values</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>&lt;script&gt;</code></td>
+          <td>Defines client-side JavaScript.</td>
+          <td>
+            <code>src</code>: URL <br />
+            <code>type</code>: <code>text/javascript</code>,
+            <code>module</code> <br />
+            <code>async</code>: <code>async</code> <br />
+            <code>defer</code>: <code>defer</code> <br />
+            <code>crossorigin</code>: <code>anonymous</code>,
+            <code>use-credentials</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;noscript&gt;</code></td>
+          <td>
+            Defines an alternate content for users that do not support
+            client-side scripts.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="embedded-content">Embedded Content</h2>
+    <table>
+      <thead>
+        <tr>
+          <th><strong>Tag</strong></th>
+          <th><strong>Description</strong></th>
+          <th><strong>Attributes and Values</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>&lt;embed&gt;</code></td>
+          <td>
+            Embeds external content at the specified point in the document.
+          </td>
+          <td>
+            <code>src</code>: URL <br />
+            <code>type</code>: MIME type <br />
+            <code>width</code>: Number <br />
+            <code>height</code>: Number
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;object&gt;</code></td>
+          <td>Defines an embedded object.</td>
+          <td>
+            <code>data</code>: URL <br />
+            <code>type</code>: MIME type <br />
+            <code>width</code>: Number <br />
+            <code>height</code>: Number <br />
+            <code>name</code>: Text <br />
+            <code>usemap</code>: Image map name <br />
+            <code>form</code>: Form ID
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;param&gt;</code></td>
+          <td>
+            Defines parameters for an <code>&lt;object&gt;</code> element.
+          </td>
+          <td>
+            <code>name</code>: Text <br />
+            <code>value</code>: Text
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="interactive-elements">Interactive Elements</h2>
+    <table>
+      <thead>
+        <tr>
+          <th><strong>Tag</strong></th>
+          <th><strong>Description</strong></th>
+          <th><strong>Attributes and Values</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>&lt;details&gt;</code></td>
+          <td>Defines additional details that the user can view or hide.</td>
+          <td><code>open</code>: <code>open</code></td>
+        </tr>
+        <tr>
+          <td><code>&lt;summary&gt;</code></td>
+          <td>
+            Defines a visible heading for a
+            <code>&lt;details&gt;</code> element.
+          </td>
+          <td>
+            <code>id</code>: Text <br />
+            <code>class</code>: Text <br />
+            <code>style</code>: CSS styles
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;dialog&gt;</code></td>
+          <td>Defines a dialog box or window.</td>
+          <td><code>open</code>: <code>open</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
