@@ -3,7 +3,7 @@ Tricks and techniques:
 
 - The way to do breadth first search in a matrix:
     numRegions()
-    
+
 
 """
 
