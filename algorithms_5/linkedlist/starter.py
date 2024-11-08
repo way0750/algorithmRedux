@@ -39,19 +39,62 @@ class ListNode:
 class LinkedList:
     def __init__(self):
         self.head = None
+        self.tail = None
 
     def insert_at_beginning(self, val: int) -> None:
-        pass
+        new_head = ListNode(val)
+        if not self.head:
+            self.head = new_head
+            self.tail = new_head
+        else:
+            new_head.next = self.head
+            self.head = new_head
 
     def insert_at_end(self, val: int) -> None:
-        pass
+        if not self.tail:
+            self.insert_at_beginning(val)
+        else:
+            new_tail = ListNode(val)
+            self.tail.next = new_tail
+            self.tail = new_tail
 
     def delete_by_value(self, val: int) -> None:
-        pass
+        pre_node = None
+        cur_node = self.head
+        while cur_node:
+            # list is empty: nothing needs to be done
+            # del first node
+            # del last node
+            # del any node in between
+            # list has only one node: pre and .next are both None
+            if cur_node.val != val:
+                pre_node = cur_node
+                cur_node = cur_node.next
+                continue
+
+            if self.head == self.tail:
+                self.head = None
+                self.tail = None
+            elif pre_node == None: # deleting the head
+                new_head = self.head.next
+                self.head.next = None
+                self.head = new_head
+            elif not cur_node.next: # deleting the tail
+                self.tail = pre_node
+            else:
+                pre_node.next = cur_node.next
+                cur_node.next = None
+            return
+
 
     def search(self, val: int) -> bool:
-        pass
-
+        cur_node = self.head
+        while cur_node:
+            if val == cur_node.val:
+                return True
+            else:
+                cur_node = cur_node.next
+        return False
 
 """
 Challenge 2: Reverse a Singly Linked List
