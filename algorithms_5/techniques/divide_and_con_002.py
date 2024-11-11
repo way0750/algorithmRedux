@@ -88,8 +88,17 @@ Explanation:
   - Output: True
 """
 def search_2d_matrix(matrix, target):
-    
-
+    if not matrix or not matrix[0]: return False
+    row = 0
+    col = len(matrix[0]) - 1
+    while row < len(matrix) and col > -1:
+        if matrix[row][col] == target: return True
+        if matrix[row][col] > target:
+            # that means, from this position on, all the numbers on the remaning col will be larger than target, so move to the left to a smaller col
+            col -= 1
+        else:
+            row += 1
+    return False
 # Test cases for Search in a 2D Matrix
 def test_search_2d_matrix():
     matrix1 = [
@@ -115,3 +124,5 @@ def test_search_2d_matrix():
     ]
     target3 = 3
     assert search_2d_matrix(matrix3, target3) == True, f"Expected True, but got {search_2d_matrix(matrix3, target3)}"
+
+test_search_2d_matrix()
