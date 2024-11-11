@@ -45,4 +45,23 @@ Constraints:
 0 <= nums.length <= 100
 0 <= nums[i] <= 50
 0 <= val <= 100
+
+just keep two pointers move from left to right
+back and front
+when front !== val
+swap with back
+    back++
+
+time: O(n)
+space: O(1)
  */
+
+var removeElement = function(nums, val) {
+    let back = 0;
+    for (let front = 0; front < nums.length; front++) {
+        if (nums[front] !== val) {
+            nums[back++] = nums[front];
+        }
+    }
+    return back;
+};
