@@ -36,7 +36,21 @@ nums2.length == n
 0 <= m, n <= 200
 1 <= m + n <= 200
 -109 <= nums1[i], nums2[j] <= 109
- 
 
 Follow up: Can you come up with an algorithm that runs in O(m + n) time?
+
+just merge from right to left for both arrays
  */
+
+var merge = function(nums1, m, nums2, n) {
+    m--;
+    n--;
+    let insertIndex = nums1.length-1;
+    while (n > -1) {
+        if (nums1[m] > nums2[n]) {
+            nums1[insertIndex--] = nums1[m--];
+        } else {
+            nums1[insertIndex--] = nums2[n--];
+        }
+    }
+};
