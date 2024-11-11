@@ -42,4 +42,26 @@ Constraints:
 1 <= nums.length <= 3 * 104
 -100 <= nums[i] <= 100
 nums is sorted in non-decreasing order.
+
+keep two pointers:
+back and front
+both initilized to 0
+loop through the array
+    if back and front are point to same val: do nothing
+    if not same val
+        ++back
+        then back = front val
+
+time: O(n)
+space: O(1)
  */
+
+var removeDuplicates = function(nums) {
+    let back = 0;
+    for (let front = 0; front < nums.length; front++) {
+        if (nums[back] !== nums[front]) {
+            nums[++back] = nums[front]
+        }
+    }
+    return back + 1;
+};
