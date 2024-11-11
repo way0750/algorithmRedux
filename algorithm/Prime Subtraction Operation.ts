@@ -77,3 +77,11 @@ var primeSubOperation = function(nums) {
     }
     return true;
 };
+
+/**
+ * the take away:
+ * see that long list of primes? no logic, no smarty pants ideas, just a
+ * good old plaint array of numbers.
+ * sometimes, that's all you gotta do: hard core things, or do thngs the
+ * less smart way.
+ */
