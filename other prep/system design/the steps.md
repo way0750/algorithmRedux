@@ -2,6 +2,7 @@ steps to do system design interview
 1 start by clarifying requirements and think out loud be explict about how you think/understand the problem
 
 what features, aspects, use case, what does it do?
+what is the purpose?
 what is the constrains:
     volume of requests
     how much traffic are using it
