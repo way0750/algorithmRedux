@@ -61,7 +61,7 @@ space: O(1)
 
  */
 
-function removeDuplicates(nums) {
+function removeDuplicates002(nums) {
     let back = 0;
     for (let front = 0; front < nums.length; front++) {
         if (nums[front] !== nums[back-2]) {
