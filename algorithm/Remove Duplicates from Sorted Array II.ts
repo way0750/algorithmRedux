@@ -43,4 +43,30 @@ Constraints:
 1 <= nums.length <= 3 * 104
 -104 <= nums[i] <= 104
 nums is sorted in non-decreasing order.
+1,1,1,2,2,2,3,3,3
+
+b always points to a swappable index
+f is always the current index
+    swap if it isn't === b-1 and b-2
+    and b++
+
+  b
+1,1,1,2,2,2,3,3,3
+  f
+
+
+return b
+time: O(n)
+space: O(1)
+
  */
+
+function removeDuplicates(nums) {
+    let back = 0;
+    for (let front = 0; front < nums.length; front++) {
+        if (nums[front] !== nums[back-2]) {
+            nums[back++] = nums[front];
+        }
+    }
+    return back
+};
