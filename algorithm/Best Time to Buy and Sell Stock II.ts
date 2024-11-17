@@ -32,4 +32,19 @@ Constraints:
 
 1 <= prices.length <= 3 * 104
 0 <= prices[i] <= 104
+when current price is lower than the buy price
+    set new buy price
+when current price is same or higher than the buy price
+    add the current - current-1 difference to the totally gain
+
+time: O(n)
+space: O(1)
  */
+
+function maxProfit(prices: number[]): number {
+    let gain = 0;
+    for (let i = 1; i < prices.length; i++) {
+        gain += Math.max(0, (prices[i] - prices[i-1]));
+    }
+    return gain;
+};
