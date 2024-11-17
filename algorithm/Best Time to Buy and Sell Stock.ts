@@ -25,4 +25,22 @@ Constraints:
 
 1 <= prices.length <= 105
 0 <= prices[i] <= 104
+use a stack, to keep on pushing values that are lesser than the last item in the stack
+if current item is larger than the last item in the stack
+    update the current max if needed.
+time: O(1)
+space: O(1)
  */
+function maxProfit(prices: number[]): number {
+    let curMax = 0;
+    let buy = prices[0]
+    for (let i = 0; i < prices.length; i++) {
+        const price = prices[i];
+        if (price < buy) {
+            buy = price;
+        } else {
+            curMax = Math.max(curMax, price - buy);
+        }
+    }
+    return curMax;
+};
