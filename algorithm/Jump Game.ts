@@ -29,4 +29,11 @@ time: O(n)
 space: O(1)
  */
 
-
+function canJump(nums: number[]): boolean {
+    let maxReach = nums[0];
+    for (let i = 0; i < nums.length; i++) {
+        if (maxReach === i) return false;
+        maxReach = Math.max(maxReach, i + nums[i]);
+    }
+    return true;
+};
