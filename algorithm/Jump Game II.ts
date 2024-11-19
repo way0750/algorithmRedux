@@ -25,4 +25,28 @@ Constraints:
 1 <= nums.length <= 104
 0 <= nums[i] <= 1000
 It's guaranteed that you can reach nums[n - 1].
- */
+
+set jumpCount = 1
+loop from 0 to length-2
+keep track of the maxReach, each increasing it, should increase jumpCount
+return jumpCount
+9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,
+*/
+
+function jump(nums: number[]): number {
+    let jumpCount = 0;
+    let curMaxReach = 0;
+    let newMaxReach = 0;
+    let i = 0;
+    while (curMaxReach < nums.length-1) {
+        if (i+nums[i] > newMaxReach) {
+            newMaxReach = i+nums[i];
+        }
+        if (i === curMaxReach) {
+            curMaxReach = newMaxReach
+            jumpCount++
+        }
+        i++;
+    }
+    return jumpCount;
+};
