@@ -21,4 +21,12 @@ Constraints:
 
 1 <= nums.length <= 104
 0 <= nums[i] <= 105
+
+going from index 0 and update the max reach distance by summing current inde x + number 
+default return true
+any time you get a max reach === 0, return false
+time: O(n)
+space: O(1)
  */
+
+
