@@ -43,12 +43,28 @@ then compare the current paper count: index+1
         so just return the first last paper that is still > citation count
  */
 
-function hIndex(citations: number[]): number {
+function hIndex001(citations: number[]): number {
     let curH = 0;
     let i = 0;
     citations = citations.sort((a, b) => b-a);
     while (i < citations.length && citations[i] > i) {
         curH = i++;
+    }
+    return curH;
+};
+
+function hIndex(citations: number[]): number {
+    let curH = 0;
+    citations = citations.sort((a, b) => b-a);
+    let left = 0;
+    let right = citations.length;
+    while (left <= right) {
+        const mid = left + Math.floor((right - left)/2);
+        if (mid+1 > citations[mid]) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
     }
     return curH;
 };
