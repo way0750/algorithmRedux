@@ -38,3 +38,22 @@ n == gas.length == cost.length
 1 <= n <= 105
 0 <= gas[i], cost[i] <= 104
  */
+
+function canCompleteCircuit(gas: number[], cost: number[]): number {
+    let totalSurplus = 0;
+    let curSurplus = 0;
+    let startIndex = 0;
+    for (let i = 0; i < gas.length; i++) {
+        // if curSurplus is < 0, that means from start to current index
+        // will result in an invalid path, and the current index's gas
+        // surplus must be negative. so set startIndex to next index
+        const surplus = gas[i] - cost[i];
+        totalSurplus += surplus;
+        curSurplus += surplus;
+        if (curSurplus < 0) {
+            startIndex = i+1;
+            curSurplus = 0;
+        }
+    }
+    return totalSurplus > -1 ? startIndex : -1;
+};
