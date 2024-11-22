@@ -22,4 +22,33 @@ Constraints:
 n == citations.length
 1 <= n <= 5000
 0 <= citations[i] <= 1000
+0,1,3,5,6
+
+44,55,66,77
+4
+77,66,55,44,3,2,1,0
+1 . 2 3 . 4 5 6 7 8
+
+4,4,4,3,3,3,2,2,2
+1,2,3,4,5,6,7,8,9
+
+n paper with at least n citations
+sort number from large to small
+this way for each number, you can tell that all numbers on the left are equal/larger to current number
+then compare the current paper count: index+1
+    you get an amount of paper with at least num amount of citation
+
+    but if the citation count < paper count
+        that's invalid
+        so just return the first last paper that is still > citation count
  */
+
+function hIndex(citations: number[]): number {
+    let curH = 0;
+    let i = 0;
+    citations = citations.sort((a, b) => b-a);
+    while (i < citations.length && citations[i] > i) {
+        curH = i++;
+    }
+    return curH;
+};
