@@ -20,5 +20,23 @@ Constraints:
 
 1 <= haystack.length, needle.length <= 104
 haystack and needle consist of only lowercase English characters.
+
+the most straight forward solution would be moving char by chat on the haystack
+    then whenever find a char === needle[0]
+        do a char by char comprision
+
+time: O(haystack.length * needle.length)
+space: O(1)
  */
 
+function strStr(haystack: string, needle: string): number {
+    for (let i = 0; i < haystack.length; i++) {
+        const hChar = haystack[i];
+        if (hChar === needle[0]) {
+            let j = 0;
+            while (needle[j] && needle[j] === haystack[i+j]) j++;
+            if (j === needle.length) return i;
+        }
+    }
+    return -1;
+};
