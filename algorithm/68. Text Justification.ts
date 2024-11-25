@@ -55,4 +55,46 @@ Constraints:
 words[i] consists of only English letters and symbols.
 1 <= maxWidth <= 100
 words[i].length <= maxWidth
+
+keep on taking words until
+    all chars length + word count -1 >= maxLength
+    then distribute spaces:
+        availabel space = maxLength - all chars length
+        space chunk = word count - 1
+        10/4 = 2.5
+        3, 3, 2, 2
+        10 / 4, floor 2
+        10 % 4 = 2 meaning two first chuncks will get 1 extra space
+        map through each string and add spaces
+
+    for the last string, just add space to the end and done
  */
+function fullJustify(words: string[], maxWidth: number): string[] {
+    let justfied = [];
+    let curLine = [];
+    let curLineCharCount = 0;
+    for (let word of words) {
+        if ((curLineCharCount + word.length + curLine.length) <= maxWidth) {
+            curLineCharCount += word.length;
+            curLine.push(word);
+        } else {
+            // make justified line:
+            const spaceChunk = curLine.length - 1;
+            const spaceCount = maxWidth - curLineCharCount;
+            // spaceChunk can be 0!
+            const avgSpace = spaceChunk ? ' '.repeat(Math.floor(spaceCount / spaceChunk)) : '';
+            const extraSpaceIndexes = spaceCount % spaceChunk;
+            for (let j = 0; j < curLine.length-1; j++) {
+                const extraSpace = j < extraSpaceIndexes ? ' ' : '';
+                const space = avgSpace + extraSpace;
+                curLine[j] += space;
+            }
+            justfied.push(curLine.join('').padEnd(maxWidth, ' '));
+            curLine = [word];
+            curLineCharCount = word.length;
+        }
+    }
+    let lastLine = curLine.join(' ');
+    lastLine = lastLine.padEnd(maxWidth, ' ');
+    return justfied.concat(lastLine);
+};
