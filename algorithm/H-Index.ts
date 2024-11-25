@@ -41,6 +41,11 @@ then compare the current paper count: index+1
     but if the citation count < paper count
         that's invalid
         so just return the first last paper that is still > citation count
+
+
+
+1,2,3,4,5,6,7
+0,1,2,3,4,5,6
  */
 
 function hIndex001(citations: number[]): number {
