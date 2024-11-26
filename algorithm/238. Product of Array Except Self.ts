@@ -26,3 +26,17 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
 
 Follow up: Can you solve the problem in O(1) extra space complexity? (The output array does not count as extra space for space complexity analysis.)
  */
+
+function productExceptSelf(nums: number[]): number[] {
+    const ans = nums.slice();
+    for (let i = ans.length-2; i > -1; i--) {
+        ans[i] *= ans[i+1];
+    }
+    ans.push(1);
+    let leftProd = 1;
+    return nums.map((n, index) => {
+        const selfProd = leftProd * ans[index+1];
+        leftProd *= n;
+        return selfProd;
+    });
+};
