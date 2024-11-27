@@ -24,3 +24,19 @@ Constraints:
 1 <= ransomNote.length, magazine.length <= 105
 ransomNote and magazine consist of lowercase English letters.
  */
+function canConstruct(ransomNote: string, magazine: string): boolean {
+    const record = {};
+    for (let i = 0; i < magazine.length; i++) {
+        const char = magazine[i];
+        record[char] = (record[char] || 0) + 1;
+    }
+    for (let i = 0; i < ransomNote.length; i++) {
+        const char = ransomNote[i];
+        record[char] = record[char] || 0;
+        record[char]--;
+        if (!(char in record) || record[char] < 0) {
+            return false;
+        }
+    }
+    return true;
+};
