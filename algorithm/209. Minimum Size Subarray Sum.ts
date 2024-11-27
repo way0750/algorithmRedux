@@ -30,3 +30,18 @@ Constraints:
 Follow up: If you have figured out the O(n) solution, try coding another solution of which the time complexity is O(n log(n)).
 
  */
+
+function minSubArrayLen(target: number, nums: number[]): number {
+    let back = -1;
+    let sum = 0;
+    let minLength = Infinity;
+    for (let front = 0; front < nums.length; front++) {
+        sum += nums[front];
+        while (sum >= target) {
+            minLength = Math.min(minLength, front - back);
+            back++;
+            sum -= nums[back];
+        }
+    }
+    return minLength === Infinity ? 0 : minLength;
+};
