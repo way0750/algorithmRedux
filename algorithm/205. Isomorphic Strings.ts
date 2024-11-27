@@ -42,4 +42,19 @@ Constraints:
 1 <= s.length <= 5 * 104
 t.length == s.length
 s and t consist of any valid ascii character.
+
+s = "paper"
+t = "title"
+find a way to change both string into the same pattern format
  */
+
+function isIsomorphic(s: string, t: string): boolean {
+    const sRecord = {};
+    const tRecord = {};
+    for (let i = 0; i < s.length; i++) {
+        if (sRecord[s[i]] !== tRecord[t[i]]) return false;
+        sRecord[s[i]] = i;
+        tRecord[t[i]] = i;
+    }
+    return true;
+};
