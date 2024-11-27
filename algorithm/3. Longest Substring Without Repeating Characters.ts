@@ -28,3 +28,19 @@
     0 <= s.length <= 5 * 104
     s consists of English letters, digits, symbols and spaces.
  */
+
+function lengthOfLongestSubstring002(s: string): number {
+    let length = 0;
+    let back = -1;
+    const freq = {};
+    for (let front = 0; front < s.length; front++) {
+        const char = s[front];
+        freq[char] = (freq[char] || 0) + 1;
+        while (freq[char] > 1) {
+            back++;
+            freq[s[back]]--;
+        }
+        length = Math.max(length, front - back);
+    }
+    return length;
+};
