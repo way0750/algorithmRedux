@@ -36,3 +36,21 @@ Constraints:
 s consists of English letters (lower-case and upper-case), ',' and '.'.
 1 <= numRows <= 1000
  */
+
+function convert(s: string, numRows: number): string {
+    if (numRows === 1 || s.length < numRows) return s;
+    let wordIndex = 0;
+    let direction = 1;
+    const rows = Array(numRows).fill(1).map(() => []);
+    for (let i = 0; i < s.length; i++) {
+        rows[wordIndex].push(s[i]);
+        if (wordIndex === numRows - 1) {
+            direction = -1;
+        } else if (wordIndex === 0) {
+            direction = 1;
+        }
+        wordIndex += direction;
+    }
+    return rows.map((r) => r.join('')).join('');
+};
+
