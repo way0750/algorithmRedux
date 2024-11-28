@@ -32,3 +32,13 @@ Only one valid answer exists.
 
 Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
  */
+
+function twoSum(nums: number[], target: number): number[] {
+    const indexes = {};
+    for (let i = 0; i < nums.length; i++) {
+        const n = nums[i];
+        if (target - n in indexes) return [indexes[target - n], i];
+        indexes[n] = i;
+    }
+    return [-1, -1];
+};
