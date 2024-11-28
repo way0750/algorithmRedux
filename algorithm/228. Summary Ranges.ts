@@ -37,4 +37,21 @@ Constraints:
 All the values of nums are unique.
 nums is sorted in ascending order.
 
+loop through the nums, and for each number
+add to the previous range if it's +1 than the end of previous range
+time: O(n)
+space: O(n)
  */
+
+function summaryRanges(nums: number[]): string[] {
+    const ranges = [];
+    for (let i = 0; i < nums.length; i++) {
+        const num = nums[i];
+        if (num - nums[i-1] === 1) {
+            ranges[ranges.length-1][1] = num
+        } else {
+            ranges.push([num]);
+        }
+    }
+    return ranges.map((range) => range.join("->"));
+};
