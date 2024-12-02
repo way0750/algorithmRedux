@@ -34,3 +34,15 @@ Constraints:
 0 <= digits[i] <= 9
 digits does not contain any leading 0's.
  */
+function plusOne(digits: number[]): number[] {
+    let carryOver = 1;
+    for (let i = digits.length-1; i > -1; i--) {
+        const sum = digits[i] + carryOver;
+        digits[i] = sum % 10;
+        carryOver = sum === 10 ? 1 : 0;
+    }
+    if (carryOver) {
+        digits.unshift(carryOver);
+    }
+    return digits;
+};
