@@ -22,3 +22,19 @@ Constraints:
 
 0 <= x <= 231 - 1
  */
+
+function mySqrt(x: number): number {
+    let left = 1;
+    let right = Math.floor(x/2)+1;
+    while (left < right) {
+        const mid = left + Math.floor((right-left)/2);
+        const prod = mid * mid;
+        if (prod === x) return mid;
+        if (prod < x) {
+            left = mid+1;
+        } else {
+            right = mid;
+        }
+    }
+    return (left * left) > x ? left - 1 : left;
+};
