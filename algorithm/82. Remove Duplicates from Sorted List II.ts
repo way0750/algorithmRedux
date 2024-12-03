@@ -22,3 +22,27 @@ The number of nodes in the list is in the range [0, 300].
 The list is guaranteed to be sorted in ascending order.
  */
 
+function deleteDuplicates(head: ListNode | null): ListNode | null {
+    const dummy = new ListNode(null, head);
+    let curNode = dummy;
+    let dubVal = null;
+    while (curNode) {
+        if (curNode.next && curNode.next.next) {
+            if (curNode.next.val === curNode.next.next.val) {
+                dubVal = curNode.next.val;
+            }
+        }
+        let nextNode = curNode.next;
+        while (nextNode && nextNode.val === dubVal) {
+            curNode.next = nextNode.next
+            nextNode = nextNode.next;
+        }
+        if (dubVal !== null) {
+            dubVal = null;
+        } else {
+            curNode = curNode.next;
+        }
+    }
+
+    return dummy.next;
+};
