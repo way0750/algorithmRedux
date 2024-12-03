@@ -22,7 +22,7 @@ The number of nodes in the list is in the range [0, 300].
 The list is guaranteed to be sorted in ascending order.
  */
 
-function deleteDuplicates(head: ListNode | null): ListNode | null {
+function deleteDuplicates002(head: ListNode | null): ListNode | null {
     const dummy = new ListNode(null, head);
     let curNode = dummy;
     let dubVal = null;
