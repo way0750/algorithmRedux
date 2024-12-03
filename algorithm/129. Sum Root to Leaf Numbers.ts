@@ -37,3 +37,15 @@ The number of nodes in the tree is in the range [1, 1000].
 0 <= Node.val <= 9
 The depth of the tree will not exceed 10.
  */
+
+
+function sumNumbers(root: TreeNode | null, pathSum = 0, grandSum = 0): number {
+    if (!root) return 0;
+
+    pathSum = pathSum * 10 + root.val;
+    if (!root.left && !root.right) return pathSum + grandSum;
+
+    grandSum = root.left ? sumNumbers(root.left, pathSum, grandSum) : grandSum;
+    grandSum = root.right ? sumNumbers(root.right, pathSum, grandSum) : grandSum;
+    return grandSum;
+};
