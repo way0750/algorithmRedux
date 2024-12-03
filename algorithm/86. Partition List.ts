@@ -22,3 +22,26 @@ The number of nodes in the list is in the range [0, 200].
 -100 <= Node.val <= 100
 -200 <= x <= 200
  */
+
+
+function partition(head: ListNode | null, x: number): ListNode | null {
+    const bigDummy = new ListNode();
+    let bigEnd = bigDummy;
+    const smallDummy = new ListNode();
+    let smallEnd = smallDummy;
+
+    let curNode = head;
+    while (curNode) {
+        if (curNode.val < x) {
+            smallEnd.next = curNode;
+            smallEnd = smallEnd.next;
+        } else {
+            bigEnd.next = curNode;
+            bigEnd = bigEnd.next;
+        }
+        curNode = curNode.next;
+    }
+    smallEnd.next = bigDummy.next;
+    bigEnd.next = null;
+    return smallDummy.next;
+};
