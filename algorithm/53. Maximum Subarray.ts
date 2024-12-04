@@ -3,8 +3,6 @@
 subarray
  with the largest sum, and return its sum.
 
- 
-
 Example 1:
 
 Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
@@ -30,5 +28,18 @@ Constraints:
 
 Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
 
-
+whenever the accumulative sum < 0, reset it to next number instead
+keep a global max
+loop from left to right
+time: O(n)
+space: O(1)
  */
+function maxSubArray(nums: number[]): number {
+    let max = nums[0];
+    let sum = nums[0];
+    for (let i = 1; i < nums.length; i++) {
+        sum = Math.max(sum + nums[i], nums[i]);
+        max = Math.max(max, sum);
+    }
+    return max;
+};
