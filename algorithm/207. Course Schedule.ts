@@ -27,4 +27,37 @@ Constraints:
 prerequisites[i].length == 2
 0 <= ai, bi < numCourses
 All the pairs prerequisites[i] are unique.
+
+when comes to doing this kinda graph search,
+    need to have both graph level and path level isVisted record
+    graph level isVisited record is to avoid visiting the same node, and then use the pre processed results
+    path level isVisted record to tell if there is a cycle
  */
+
+
+function canFinish(numCourses: number, prerequisites: number[][]): boolean {
+    const isVistedGraph = new Set();
+    const graph = {};
+    for (let i = 0; i < prerequisites.length; i++) {
+        const prer = prerequisites[i];
+        graph[prer[0]] = graph[prer[0]] || [];
+        graph[prer[0]].push(prer[1]);
+    }
+
+    const search = (node, isVistedPath = new Set()) => {
+        if (isVistedPath.has(node)) return false;
+        if (isVistedGraph.has(node)) return true;
+        if (!(node in graph)) return true;
+        isVistedPath.add(node);
+        isVistedGraph.add(node);
+        const ans = graph[node].every((edge) => search(edge, isVistedPath));
+        isVistedPath.delete(node);
+        return ans;
+    }
+
+    for (let node = 0; node < numCourses; node++) {
+        if (!search(node)) return false;  
+    }
+
+    return true;
+};
