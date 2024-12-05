@@ -23,3 +23,23 @@ Constraints:
 1 <= n <= 20
 1 <= k <= n
  */
+
+function combine(n: number, k: number): number[][] {
+    const ans = [];
+    let combos = [[]];
+    let num = 1;
+    while (num <= n) {
+        const newEle = [];
+        for (let i = 0; i < combos.length; i++) {
+            const combo = combos[i];
+            if (combo.length === k-1) {
+                ans.push(combo.concat(num));
+            } else {
+                newEle.push(combo.concat(num));
+            }
+        }
+        combos.push(...newEle);
+        num++;
+    }
+    return ans;
+};
