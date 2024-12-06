@@ -29,3 +29,15 @@ Constraints:
 0 <= amount <= 104
  */
 
+function coinChange(coins: number[], amount: number): number {
+    const cache = Array(amount+1).fill(Infinity);
+    cache[0] = 0;
+    for (let i = 1; i <= amount; i++) {
+        for (let j = 0; j < coins.length; j++) {
+            if (i - coins[j] > -1) {
+                cache[i] = Math.min(cache[i], cache[i-coins[j]] + 1);
+            }
+        }
+    }
+    return cache[amount] === Infinity ? -1 : cache[amount];
+};
