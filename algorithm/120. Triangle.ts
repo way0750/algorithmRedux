@@ -31,4 +31,28 @@ triangle[i].length == triangle[i - 1].length + 1
 
 Follow up: Could you do this using only O(n) extra space, where n is the total number of rows in the triangle?
 
+just save all the possibel previous paths' sum and reutrn the smallest one
+go from top to bottom
+    and then for each index, + the smallest previous path min
+    keep track of which one is smallest globally
+return global min;
+time: O(number of nodes)
+space: O(row count)
  */
+
+function minimumTotal(triangle: number[][]): number {
+    const preMins = [];
+    for (let rowIndex = 0; rowIndex < triangle.length; rowIndex++) {
+        const row = triangle[rowIndex];
+        const newMins = [];
+        for (let colIndex = 0; colIndex < row.length; colIndex++) {
+            const curNum = row[colIndex];
+            const leftPre = colIndex-1 in row ? row[colIndex-1] : Infinity;
+            const rightPre = colIndex+1 in row ? row[colIndex+1] : Infinity;
+            const newMin = Math.min(leftPre + curNum, curNum + rightPre)
+            newMins.push(newMin);
+        }
+    }
+
+    return Math.min(...preMins);
+};
