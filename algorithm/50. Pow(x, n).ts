@@ -26,3 +26,28 @@ n is an integer.
 Either x is not zero or n > 0.
 -104 <= xn <= 104
  */
+
+function myPow(x: number, n: number): number {
+    if (n === 0) return 1;
+    if (n === 1) return x;
+    const negative = n < 0;
+    n = Math.abs(n);
+    const half = Math.floor(n/2);
+    const carry = n % 2;
+    let ans = myPow(x, half);
+    ans *= ans;
+    ans *= myPow(x, carry);
+    return negative ? 1 / ans : ans
+};
+
+/**
+
+2^8
+
+2^4 * 2^4
+
+2^2 * 2^2
+
+2^1 * 2^1
+
+ */
