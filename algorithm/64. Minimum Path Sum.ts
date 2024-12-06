@@ -24,3 +24,19 @@ n == grid[i].length
 1 <= m, n <= 200
 0 <= grid[i][j] <= 200
  */
+
+function minPathSum(grid: number[][]): number {
+    const cols = grid[0].length;
+    const rows = grid.length;
+    for (let row = 1; row < rows; row++) grid[row][0] += grid[row-1][0]
+    for (let col = 1; col < cols; col++) grid[0][col] += grid[0][col-1]
+    for (let row = 1; row < rows; row++) {
+        for (let col = 1; col < cols; col++) {
+            grid[row][col] = Math.min(
+                grid[row][col] + grid[row-1][col],
+                grid[row][col] + grid[row][col-1],
+            )
+        }
+    }
+    return grid[rows-1][cols-1]
+};
