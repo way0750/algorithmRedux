@@ -30,3 +30,20 @@ Follow up: Can you come up with an algorithm that runs in O(n log(n)) time compl
 
 
  */
+
+function lengthOfLIS(nums: number[]): number {
+    const subMax = Array(nums.length).fill(0);
+    let curMax = 0;
+    for (let i = 0; i < nums.length; i++) {
+        const curNum = nums[i];
+        for (let j = 0; j < i; j++) {
+            const leftNum = nums[j];
+            if (leftNum < curNum) {
+                subMax[i] = Math.max(subMax[i], subMax[j]);
+            }
+        }
+        subMax[i]++;
+        curMax = Math.max(curMax, subMax[i]);
+    }
+    return curMax;
+};
