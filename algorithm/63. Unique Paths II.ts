@@ -33,3 +33,26 @@ n == obstacleGrid[i].length
 obstacleGrid[i][j] is 0 or 1.
 
  */
+
+function uniquePathsWithObstacles(grid: number[][]): number {
+    const rows = grid.length;
+    const cols = grid[0].length;
+    grid[0][0] = grid[0][0] === 0 ? 1 : 0;
+    for (let col = 1; col < cols; col++) {
+        const cell = grid[0][col];
+        grid[0][col] = cell === 0 ? grid[0][col-1] : 0;
+    }
+    for (let row = 1; row < rows; row++) {
+        const cell = grid[row][0];
+        grid[row][0] = cell === 0 ? grid[row-1][0] : 0;
+    }
+    for (let row = 1; row < rows; row++) {
+        for (let col = 1; col < cols; col++) {
+            const cell = grid[row][col];
+            grid[row][col] = cell === 0 
+                ? grid[row-1][col] + grid[row][col-1] 
+                : 0;
+        }
+    }
+    return grid[rows-1][cols-1];
+};
