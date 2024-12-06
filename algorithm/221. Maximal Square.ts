@@ -27,3 +27,24 @@ n == matrix[i].length
 matrix[i][j] is '0' or '1'.
 
  */
+
+function maximalSquare(matrix: string[][]): number {
+    let curMax = 0;
+    let dp = Array(matrix[0].length).fill(0);
+    for (let row = 0; row < matrix.length; row++) {
+        const newDp = [];
+        for (let col = 0; col < matrix[0].length; col++) {
+            if (matrix[row][col] === '1') {
+                const top = dp[col];
+                const left = newDp[col-1] || 0;
+                const topLeft = dp[col-1] || 0;
+                newDp.push(Math.min(top, left, topLeft) + 1);
+                curMax = Math.max(curMax, newDp[col]);
+            } else {
+                newDp.push(0);
+            }
+        }
+        dp = newDp;
+    }
+    return curMax * curMax;
+};
