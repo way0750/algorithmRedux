@@ -28,3 +28,36 @@ Constraints:
 nums is a non-decreasing array.
 -109 <= target <= 109
  */
+
+function searchRange(nums: number[], target: number): number[] {
+    let start = -1
+    // go left:
+    let left = 0;
+    let right = nums.length;
+    while (left < right && start === -1) {
+        const mid = left + Math.floor((right - left) / 2);
+        if (nums[mid] === target && nums[mid-1] !== target) {
+            start = mid;
+        } else if (target < nums[mid] || nums[mid-1] === target) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    let end = -1
+    // go right:
+    left = 0;
+    right = nums.length;
+    while (left < right && end === -1) {
+        const mid = left + Math.floor((right - left) / 2);
+        if (nums[mid] === target && target !== nums[mid+1]) {
+            end = mid;
+        } else if (nums[mid] < target || target === nums[mid+1]) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
+    }
+
+    return [start, end];
+};
