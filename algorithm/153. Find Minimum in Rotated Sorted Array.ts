@@ -37,3 +37,19 @@ All the integers of nums are unique.
 nums is sorted and rotated between 1 and n times.
 
  */
+
+function findMin(nums: number[]): number {
+    if (nums.length === 1) return nums[0]
+    let left = 0;
+    let right = nums.length;
+    while (left < right) {
+        const mid = left + Math.floor((right - left)/2);
+        if (nums[left] < nums[right-1]) return nums[left];
+        if (nums[mid-1] > nums[mid]) return nums[mid];
+        if (nums[left] > nums[mid]) {
+            right = mid;
+        } else {
+            left = mid+1;
+        }
+    }
+};
