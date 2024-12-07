@@ -31,4 +31,34 @@ All values of nums are unique.
 nums is an ascending array that is possibly rotated.
 -104 <= target <= 104
 
+left vs right
+if left is sorted and contains the target
+    go left
+if the right is sorted and contains the target
+    go right
+if target isn't in any sorted portion
+    go toward the unsorted portion
+
  */
+
+
+function search(nums: number[], target: number): number {
+    let left = 0;
+    let right = nums.length;
+    while (left < right) {
+        const mid = left + Math.floor((right - left)/2);
+        if (nums[mid] === target) return mid;
+        const isLeftSorted = nums[left] < nums[mid];
+        const isRightSorted = nums[mid] < nums[right-1];
+        if (isLeftSorted && nums[left] <= target && target <= nums[mid]) {
+            right = mid;
+        } else if (isRightSorted && nums[mid] <= target && target <= nums[right-1]) {
+            left = mid + 1;
+        } else if (!isLeftSorted) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return -1;
+};
