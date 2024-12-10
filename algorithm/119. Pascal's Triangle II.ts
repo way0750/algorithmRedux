@@ -29,3 +29,21 @@ Follow up: Could you optimize your algorithm to use only O(rowIndex) extra space
 
 
  */
+
+function getRow(rowIndex: number): number[] {
+    if (rowIndex === 0) return [1];
+    let cache = [0,1,0];
+    while (rowIndex--) {
+        const newCache = [];
+        for (let i = 0; i < cache.length-1; i++) {
+            newCache.push((cache[i] + cache[i+1]));
+        }
+        newCache.unshift(0);
+        newCache.push(0);
+        cache = newCache;
+    }
+
+    cache.shift();
+    cache.pop();
+    return cache;
+};
