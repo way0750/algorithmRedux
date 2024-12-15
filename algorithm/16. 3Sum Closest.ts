@@ -24,4 +24,36 @@ Constraints:
 3 <= nums.length <= 500
 -1000 <= nums[i] <= 1000
 -104 <= target <= 104
+
+sort the array
+loop through 
+    each loop: use the two pointers technique to find the closest sum
+time: O(n**2)
+space: O(1)
  */
+
+function threeSumClosest(nums: number[], target: number): number {
+    nums.sort((a, b) => a - b);
+    let closest = Infinity;
+    for (let i = 0; i < nums.length; i++) {
+        let left = i + 1;
+        let right = nums.length;
+        while (left < right) {
+            const curSum = nums[i] + nums[left] + nums[right];
+            const curDiff = Math.min(Math.abs(target - curSum));
+            const lastDiff = Math.min(Math.abs(target - closest));
+            if (curSum === target) {
+                return curSum;
+            } else if (curDiff < lastDiff ) {
+                closest = curSum;
+            }
+            if (curSum < target) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+    }
+
+    return closest;
+};
