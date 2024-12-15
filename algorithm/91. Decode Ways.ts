@@ -63,3 +63,19 @@ Constraints:
 1 <= s.length <= 100
 s contains only digits and may contain leading zero(s).
  */
+
+function numDecodings(s: string): number {
+    if (s[0] === '0') return 0;
+    const validNums = new Set(['1', '2', '3', '4', '5', '6', 
+        '7', '8', '9', '10', '11', '12', '13', '14', '15',
+        '16', '17', '18', '19', '20', '21', '22', '23', '24',
+        '25','26']);
+
+    const cache = { '0': 1, '-1': 1 };
+    for (let i = 1; i < s.length; i++) {
+        cache[i] = 0;
+        if (validNums.has(s[i])) cache[i] += cache[i-1];
+        if (validNums.has(s.slice(i-1, i+1))) cache[i] += cache[i-2];
+    }
+    return cache[s.length-1];
+};
