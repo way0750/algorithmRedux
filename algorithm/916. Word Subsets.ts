@@ -28,3 +28,32 @@ words1[i] and words2[i] consist only of lowercase English letters.
 All the strings of words1 are unique.
 
  */
+
+function wordSubsets(words1: string[], words2: string[]): string[] {
+    const w2Freq = {};
+    for (let i = 0; i < words2.length; i++) {
+        const word = words2[i];
+        const curWordFreq = {};
+        for (let j = 0; j < word.length; j++) {
+            const char = word[j];
+            curWordFreq[char] = curWordFreq[char] || 0;
+            curWordFreq[char]++;
+        }
+        for (let key in curWordFreq) {
+            w2Freq[key] = Math.max(w2Freq[key] || 0, curWordFreq[key]);
+        }
+    }
+
+    return words1.filter((w1) => {
+        const w1Freq = {};
+        for (let i = 0; i < w1.length; i++) {
+            const char = w1[i];
+            w1Freq[char] = w1Freq[char] || 0;
+            w1Freq[char]++;
+        }
+        for (let key in w2Freq) {
+            if (!w1Freq[key] || w1Freq[key] < w2Freq[key]) return false;
+        }
+        return true;    
+    });
+};
