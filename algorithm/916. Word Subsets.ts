@@ -29,7 +29,7 @@ All the strings of words1 are unique.
 
  */
 
-function wordSubsets(words1: string[], words2: string[]): string[] {
+function wordSubsetsOld(words1: string[], words2: string[]): string[] {
     const w2Freq = {};
     for (let i = 0; i < words2.length; i++) {
         const word = words2[i];
@@ -56,4 +56,33 @@ function wordSubsets(words1: string[], words2: string[]): string[] {
         }
         return true;    
     });
+};
+
+const getFreq = (str) => {
+    const freq = Array(26).fill(0);
+
+    for (let i = 0; i < str.length; i++) {
+        const char = str[i];
+        const index = char.charCodeAt(0) - 97;
+        freq[index]++;
+    }
+
+    return freq;
+}
+
+function wordSubsets(words1: string[], words2: string[]): string[] {
+    const w2Freq = Array(26).fill(0);
+    for(let i = 0; i < words2.length; i++) {
+        const tempFreq = getFreq(words2[i]);
+        for (let j = 0; j < 26; j++) w2Freq[j] = Math.max(w2Freq[j], tempFreq[j]);
+    }
+    const ans = [];
+    for (let i = 0; i < words1.length; i++) {
+        const w1Freq = getFreq(words1[i]);
+        const isUni = w2Freq.every((w2CharCount, index) => {
+            return w1Freq[index] >= w2CharCount;
+        });
+        if (isUni) ans.push(words1[i]);
+    }
+    return ans;
 };
