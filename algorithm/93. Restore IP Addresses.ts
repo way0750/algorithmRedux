@@ -30,7 +30,7 @@ s consists of digits only.
 function restoreIpAddresses(s: string, chunkRank = 1): string[] {
     if (chunkRank === 4) {
         const n = +s;
-        if (s !== `${n}`) return [];
+        if (n > 0 && s[0] === '0') return [];
         if (n < 256) return [s];
         return [];
     }
