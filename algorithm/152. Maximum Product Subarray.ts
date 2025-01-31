@@ -25,3 +25,23 @@ Constraints:
 -10 <= nums[i] <= 10
 The product of any subarray of nums is guaranteed to fit in a 32-bit integer.
  */
+
+function maxProduct(nums: number[]): number {
+    let curMax = nums[0];
+    let leftProd = 1;
+    let rightProd = 1;
+    for (let left = 0; left < nums.length; left++) {
+        const leftNum = nums[left];
+        leftProd = leftNum === 0 || leftProd === 0
+            ? leftNum
+            : leftProd * leftNum
+
+        const rightNum = nums[nums.length - left - 1];
+        rightProd = rightNum === 0 || rightProd === 0
+            ? rightNum
+            : rightProd * rightNum;
+
+        curMax = Math.max(curMax, leftProd, rightProd);
+    }
+    return curMax;
+};
