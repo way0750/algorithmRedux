@@ -114,17 +114,15 @@ var carFleet = function(target, position, speed) {
             return a.pos - b.pos || a.round - b.round;
         })
         .map((r) => r.round);
-
-    // collapse them rounds here:
-    const stack = [];
-    while (rounds.length) {
-        if (!stack.length || stack[stack.length-1] > rounds[0]) {
-            stack.push(rounds.shift());
-        } else {
-            stack.pop();
+    
+    let curFastest = 0;
+    let groups = 0;
+    for (let i = rounds.length-1; i > -1; i--) {
+        if (rounds[i] > curFastest) {
+            groups++;
         }
     }
-    return stack.length;
+    return groups;
 };
 /**
 5, 2, 6
