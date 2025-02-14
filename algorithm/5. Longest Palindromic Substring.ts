@@ -31,6 +31,9 @@ const longestPalindrome = function(s) {
     let rightReach = 0;
     for (let i = 0; i < ls.length; i++) {
         if (i < rightReach) {
+            // [2*centerI - i] because to get the mirror:
+            // centerI - (i - centerI)
+            // simplifed: 2*centerI - i;
             dp[i] = Math.min(rightReach - i, dp[2*centerI - i]);
         }
 
