@@ -55,3 +55,77 @@ All the values of position are unique.
 0 < speed[i] <= 106
 
  */
+
+/**
+target = 10
+[5, 2]
+[1, 4]
+first is ahead of second
+first will take longer than second to reach the target
+so they should be collapaed into one group with the slowest speed of 1
+how do you know they will collaped:
+a is head b is behind
+a takes more rounds than b to reach the end
+so they will collapse
+target 12
+[10,8,0,5,3]
+[2, 4,1,1,3]
+rounds:
+[1, 1, 12, 7, 3]
+sort the rounds by dis
+0,  3, 5, 8, 10
+12, 3, 7, 1, 1
+
+what if
+dis:
+3, 3
+rounds:
+2, 4
+how about during sorting, if can't determine by dis, then by rounds, smaller in front
+can catch up if number later can get to target by same or less round than next
+or count from left to right
+
+set round = Infinity // so there is something to compare to begin with
+set count = 0
+if current pos is same as next one
+    set round to the largest // as in the slowest
+if current round is > than next
+    count++
+    and set round to next pos's round
+
+time:
+o(nlogn)
+space: (n)
+
+need to use a stack to collapse things
+5, 2, 6
+
+ */
+var carFleet = function(target, position, speed) {
+    let rounds = position.map((pos, i) => {
+        return {
+            pos,
+            round: (target - pos) / speed[i],
+        };
+    });
+    // sort by pos
+    rounds = rounds
+        .sort((a, b) => {
+            return a.pos - b.pos || a.round - b.round;
+        })
+        .map((r) => r.round);
+
+    // collapse them rounds here:
+    const stack = [];
+    while (rounds.length) {
+        if (!stack.length || stack[stack.length-1] > rounds[0]) {
+            stack.push(rounds.shift());
+        } else {
+            stack.pop();
+        }
+    }
+    return stack.length;
+};
+/**
+5, 2, 6
+ */
