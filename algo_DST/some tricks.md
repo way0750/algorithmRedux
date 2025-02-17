@@ -21,3 +21,6 @@
     It is just not worth it to spend too much time (> 15 minutes) on figuring out a solution
     there is always someone who is better than you out there. Don't reinvent the wheel.
     collect pattern instead.
+
+    Again and again, and again, even if you have a solution, there is always a better one
+    so even if you are done with your solution, you must look at others!
