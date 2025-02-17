@@ -35,5 +35,40 @@ s and t consist of uppercase and lowercase English letters.
 
 Follow up: Could you find an algorithm that runs in O(m + n) time?
 
-
  */
+
+var minWindow = function(s, t) {
+    const tRecord = {};
+    let requiredCount = 0;
+    for (let i = 0; i < t.length; i++) {
+        const char = t[i];
+        tRecord[char] = tRecord[char] || 0;
+        if (tRecord[char] === 0) requiredCount++;
+        tRecord[char]++;
+    }
+
+    const windowRecord = {};
+    let metCount = 0;
+    let back = -1;
+    let minLength = Infinity;
+    let ans = '';
+    for (let front = 0; front < s.length; front++) {
+        const char = s[front];
+        windowRecord[char] = (windowRecord[char] || 0) + 1;
+        if (windowRecord[char] === tRecord[char]) metCount++;
+
+        while (metCount === requiredCount) {
+            if ((front - back) < minLength) {
+                minLength = front - back;
+                ans = s.slice(back+1, front+1);
+            }
+            const backChar = s[++back];
+            windowRecord[backChar]--;
+            if (tRecord.hasOwnProperty(backChar) && windowRecord[backChar] < tRecord[backChar]) {
+                metCount--;
+            }
+        }
+    }
+
+    return ans;
+};
