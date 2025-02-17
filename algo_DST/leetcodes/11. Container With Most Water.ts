@@ -27,4 +27,27 @@ n == height.length
 2 <= n <= 105
 0 <= height[i] <= 104
 
+
+
+solution:
+use two pointers at opposite end and move them toward each other
+at each round, calculate and update max area if needed
+move the pointer with shorter height toward the other
+
  */
+
+var maxArea = function(height) {
+    let max = -Infinity;
+    let left = 0;
+    let right = height.length-1;
+    while (left < right) {
+        const area = (right - left) * Math.min(height[left], height[right]);
+        max = Math.max(max, area);
+        if (height[left] > height[right]) {
+            right--;
+        } else {
+            left++;
+        }
+    }
+    return max;
+};
