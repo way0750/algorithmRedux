@@ -52,7 +52,7 @@ this way, when you found a repeating char
 same time and space like above
  */
 
-var lengthOfLongestSubstring = function(s) {
+var lengthOfLongestSubstring021625 = function(s) {
     let max = 0;
     const mostRecentIndexes = {};
     let back = -1;

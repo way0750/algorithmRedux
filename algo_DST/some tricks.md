@@ -24,3 +24,17 @@
 
     Again and again, and again, even if you have a solution, there is always a better one
     so even if you are done with your solution, you must look at others!
+
+# when comes to comparing many tiny states to many tiny states:
+    ex, sub string of some quality within a long string
+        many tiny states from the sub string (ex, character frequency)
+        many tiny states from the long string (ex, the current sub string and the character frequency)
+        comparing them is time consuming if you compare one by one of the A's tiny state to each of the B's tiny states
+        that's O(n**2)
+        but rather, maintain another state that tells you the current situation between A's tiny state Vs B's tiny state
+        ex: counter = 5 and there are 18 keys in A, and 500 in B's window, so counter = 5 means 5 of the 18 keys is found in
+        B's window.
+        you can update counter up and down as you go through B's data and comparing each bit to A's hash table
+
+        leetcode: 76. Minimum Window Substring
+        avoid many to many comparison, have a counter to tell if conditions are met
