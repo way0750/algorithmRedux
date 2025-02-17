@@ -16,3 +16,8 @@
     move from back to front
     let one go earlier first and then move
     slide window, both move in one direction but at different time
+
+# Make very sure to look at other's solution
+    It is just not worth it to spend too much time (> 15 minutes) on figuring out a solution
+    there is always someone who is better than you out there. Don't reinvent the wheel.
+    collect pattern instead.
