@@ -46,4 +46,12 @@
         Also, exclusive in this case means that, A is excluded
     You must think about a range is being exclusive or inclusive
         which boundary is being excluded and which is being included.
-    
+
+
+# you don't always go one direction
+    sometimes you need to loop multiple times and from different directions
+
+# you don't have to put all logics in one loop
+    you can break things into multiple parts for simpler logic
+    putting everything in one loop / part will just add a lot of complex if-then logics
+
