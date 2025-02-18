@@ -55,65 +55,6 @@ time and space complexity
         (2**(depth+1)) - 1
         zero base depth, the root node is on depth 0
 
-
-
-
-
-
-Group 1: Sequential Data Structures (Strings, Arrays, Linked Lists)
--------------------------------------------------
-- Two Pointers (arrays, strings, linked lists)
-- Sliding Window (arrays, strings)
-- Prefix Sum (arrays, matrices)
-- Stack / Monotonic Stack / Queue (arrays, queues, strings)
-- Sorting: Merge, Quick, Radix, Bucket, Counting (arrays, linked lists)
-- String Matching (KMP, Rabin-Karp, Z Algorithm)
-
-Example Problems:
-1. Longest Substring Without Repeating Characters
-2. Minimum Window Substring
-3. Subarray Sum Equals K
-4. Next Greater Element
-5. Merge Intervals
-
-Group 2: Trees & Graphs
-------------------------
-- Depth-First Search (DFS) / Breadth-First Search (BFS) (trees, graphs, matrices)
-- Shortest Path Algorithms (Dijkstra, A* Search) (graphs)
-- Topological Sort (graphs)
-- Binary Search Tree (BST) / Heap (Min/Max) (trees)
-- Trie (Prefix Tree)
-
-Example Problems:
-1. Number of Islands
-2. Network Delay Time
-3. Course Schedule (Topological Sort)
-4. Kth Smallest Element in BST
-
-Group 3: Recursion & Backtracking
----------------------------------
-- Recursion (arrays, strings, trees)
-- Backtracking (strings, arrays, trees)
-- Permutations & Combinations (arrays, strings)
-- Subsets (arrays)
-
-Example Problems:
-1. Generate Parentheses
-2. Letter Combinations of a Phone Number
-3. Subsets II
-
-Group 4: Dynamic Programming & Greedy
--------------------------------------
-- Knapsack Variants (0/1, Unbounded, Coin Change) (arrays, DP)
-- Greedy Algorithms (intervals, heaps, graphs)
-- Memoization / Bottom-Up DP
-
-Example Problems:
-1. Coin Change
-2. Jump Game
-3. Longest Increasing Subsequence
-
-
 Group 1: Sequential Data Structures (Strings, Arrays, Linked Lists)
 -------------------------------------------------------------------
 - Two Pointers:
@@ -176,3 +117,47 @@ Group 4: Dynamic Programming & Greedy
 - Memoization / Bottom-Up DP:
   33. Longest Increasing Subsequence (LeetCode #300)
   34. House Robber II (LeetCode #213)
+
+
+
+# Two pointers:
+On the sequential data structure, you place two pointers on it
+    Ex on each of the opposite end and you move them toward each other.
+    on certain point, and you move them away from each other
+
+    As far as application, it is all over the place:
+    It can be used for creating range
+    or merely accessing two bits of info
+    •	3Sum (LeetCode #15) → Find a triplet that sums to zero.
+	•	Container With Most Water (LeetCode #11) → Maximize area between two lines.
+	•	Valid Palindrome (LeetCode #125) → Check if a string is a palindrome.
+
+# Siding windows:
+8aintain two pointers, and move one ahead to exlarge a window (set by the two pointers)
+and when certain condition meets, move the back pointer forward.
+    move front pointer forward to include
+    move back pointer forward to exclude
+
+Application:
+    to find a range of something on the sequential data structure
+
+# Prefix sum:
+    prefix in english:
+        algorithms:
+        these are the prefixes
+        a
+        al
+        alg
+        algo
+        algor
+        ...
+        algorithms
+
+    so prefix sum means maintaining a record of ALL previous sum/accumulation of some sort
+    in numbers:
+    [1,3,5,8]
+    prefix sum would be:
+    [1, 4, 9, 17]
+Application:
+    if you are keep the prefix/previous states continuesly in each location
+    you are probably looking for a range

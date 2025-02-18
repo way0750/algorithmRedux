@@ -38,3 +38,12 @@
 
         leetcode: 76. Minimum Window Substring
         avoid many to many comparison, have a counter to tell if conditions are met
+
+# exclusive VS inclusive range
+    if exclusive, from left to right
+        A = 4, B = 9
+        then B - A means 5, 6, 7, 8, 9
+        Also, exclusive in this case means that, A is excluded
+    You must think about a range is being exclusive or inclusive
+        which boundary is being excluded and which is being included.
+    
