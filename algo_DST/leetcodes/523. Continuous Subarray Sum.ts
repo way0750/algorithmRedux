@@ -34,4 +34,44 @@ Constraints:
 0 <= nums[i] <= 109
 0 <= sum(nums[i]) <= 231 - 1
 1 <= k <= 231 - 1
+
+solution:
+keep a running sum
+and for the running sum at each index get the mod
+    if any of the previous index has the exact mod
+    that means, previous sum + k = current sum
+        that's the only way to get the exactly mod
+    if k = 7
+    previous sum is 10 and mod is 3
+    and current sum is 24, mod is also 3
+    to get the same mod at a different sum, you would need to +/- 7 * n (n of certain amount, but that doesn't matter)
+    so the portion between previous sum (exclusive) .... and current sum (inclusive)
+    must be divisible by k
+
+keep a running sum
+keep a record of mod: index, initialized to {0: -1}
+loop from left to right
+    update the running sum
+    get mod
+    check mod in record
+    if exists, then do a i - previous mod index
+        if > 1, return true
+default return false
+time: O(n)
+space: O(n) for the mod array
  */
+const checkSubarraySum = function(nums, k) {
+    if (k === 0) return false;
+    const mods = {0: -1};
+    let runningMod = 0;
+    for (let i = 0; i < nums.length; i++) {
+        runningMod += nums[i];
+        runningMod %= k
+        if (mods[runningMod] !== undefined) {
+            if ((i - mods[runningMod]) > 1) return true;
+        } else {
+            mods[runningMod] = i;
+        }
+    }
+    return false;
+};
