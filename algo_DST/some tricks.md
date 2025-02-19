@@ -55,3 +55,8 @@
     you can break things into multiple parts for simpler logic
     putting everything in one loop / part will just add a lot of complex if-then logics
 
+# adding default to avoid the initial checking if there is value already
+    ex: creating a new linked list, you start with a dummy node
+    if you need to compare with the last element in an new array
+        add something to the array already
+    this way, you can avoid checking if there is already a head linked list or if array is empty
