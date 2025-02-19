@@ -21,3 +21,30 @@ Constraints:
 intervals[i].length == 2
 0 <= starti <= endi <= 104
  */
+
+/**
+ * @param {number[][]} intervals
+ * @return {number[][]}
+
+ well in case the intervals aren't sorted by start
+ sort them by start
+ this way it is pretty easy to figure out if two adjuscent intervals overlaps
+    by checking if the 2nd interval's start is within the first one
+time: O(n)
+space: O(n)
+ */
+var merge = function(intervals) {
+    intervals = intervals.sort((a, b) => a[0] - b[0]);
+    const ans = [intervals[0]];
+    const len = intervals.length;
+    for (let i = 0; i < len; i++) {
+        const curIntvl = intervals[i]
+        const lastPreIntvl = ans[ans.length-1];
+        if (curIntvl[0] <= lastPreIntvl[1]) {
+            lastPreIntvl[1] = Math.max(lastPreIntvl[1], curIntvl[1]);
+        } else {
+            ans.push(curIntvl);
+        }
+    }
+    return ans;
+};
