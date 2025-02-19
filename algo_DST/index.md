@@ -68,7 +68,7 @@ Group 1: Sequential Data Structures (Strings, Arrays, Linked Lists)
   6. Subarray Sum Equals K (LeetCode #560)
 - Stack / Monotonic Stack:
   7. Next Greater Element II (LeetCode #503)
-  8. Largest Rectangle in Histogram (LeetCode #84)
+  8. Largest Rectangle in Histogram (LeetCode #84) not so much a stack solution, more like a dp solution.
 - Sorting:
   9. Sort Colors (LeetCode #75)
   10. Merge Intervals (LeetCode #56)
