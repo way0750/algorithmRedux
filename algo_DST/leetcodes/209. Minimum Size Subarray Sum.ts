@@ -29,3 +29,30 @@ Constraints:
 
 Follow up: If you have figured out the O(n) solution, try coding another solution of which the time complexity is O(n log(n)).
  */
+
+
+/**
+ * @param {number} target
+ * @param {number[]} nums
+ * @return {number}
+ use a sliding window to keep track of current window sum
+ once it >= target get the length
+ then start to narrow the window as long as it is >=
+    update the length
+keep loop forward the whole time:
+time: O(n)
+space: O(1);
+ */
+var minSubArrayLen = function(target, nums) {
+    let sum = 0;
+    let back = -1;
+    let minLen = Infinity;
+    for (let front = 0; front < nums.length; front++) {
+        sum += nums[front];
+        while (sum >= target) {
+            minLen = Math.min(minLen, front - back);
+            sum -= nums[++back]
+        }
+    }
+    return minLen === Infinity ? 0 : minLen;
+};
