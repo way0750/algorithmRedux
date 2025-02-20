@@ -29,3 +29,30 @@ Constraints:
 4 <= n <= 105
 
  */
+
+/**
+ * @param {number} n
+ * @return {boolean}
+ convert the number to into a string (base 2 num)
+ then move pointer front and back toward each other
+ time: (n)
+ space: (base 2 length of the num)
+ */
+ var isPali = function(s) {
+    let left = 0;
+    let right = s.length-1;
+    while (left < right) {
+        if (s[left] != s[right]) return false;
+        left++;
+        right--
+    }
+    return true;
+};
+
+const isStrictlyPalindromic = (n) => {
+    for (let base = 2; base <= n-2; base++) {
+        const str = n.toString(base);
+        if (isPali(str) === false) return false;
+    }
+    return true;
+}
