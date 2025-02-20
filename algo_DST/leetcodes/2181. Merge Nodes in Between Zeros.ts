@@ -34,4 +34,27 @@ The number of nodes in the list is in the range [3, 2 * 105].
 0 <= Node.val <= 1000
 There are no two consecutive nodes with Node.val == 0.
 The beginning and end of the linked list have Node.val == 0.
+
+
+basically keep on "pulling" sub sequent node to self as long as they are not 0
+self node is the zero node
+
  */
+
+var mergeNodes = function(head) {
+    const dummy = { next: head };
+    let pre = dummy;
+    let curNode = head;
+    while (curNode.next) {
+        let next = curNode.next;
+        while (next && next.val !== 0) {
+            curNode.val += next.val;
+            curNode.next = next.next;
+            next = curNode.next;
+        }
+        pre = curNode;
+        curNode = next;
+    }
+    pre.next = null;
+    return head;
+};
