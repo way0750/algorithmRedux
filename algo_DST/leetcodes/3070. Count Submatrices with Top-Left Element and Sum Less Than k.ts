@@ -28,4 +28,63 @@ n == grid[i].length
 1 <= n, m <= 1000 
 0 <= grid[i][j] <= 1000
 1 <= k <= 109
+
+
+for matrix:
+7,2,9
+1,5,0
+2,6,6
+
+
  */
+
+/**
+ * @param {number[][]} grid
+ * @param {number} k
+ * @return {number}
+
+  7  9 18
+  8 15 24
+ 10 23 38
+
+top + left + self - (topLeft the overlapping matrix) = self sum
+
+loop from top left to botton right
+fill each cell with the running sum of the matrix (starts from top left and ends
+at self)
+
+keep looping from top row to bottom, left col to right
+    whenever the sum is > k, it's done no need to keep going on that row
+
+time and space:
+    if reusing the input
+    space: O(1)
+    time: O(mn)
+
+ */
+    var countSubmatrices = function(grid, k) {
+        let count = 0;
+        for (let row = 0; row < grid.length; row++) {
+            let col = 0;
+            while (col < grid[0].length) {
+                if (row > 0) {
+                    grid[row][col] += grid[row-1][col];
+                }
+                if (col > 0) {
+                    grid[row][col] += grid[row][col-1];
+                }
+                if (row > 0 && col > 0) {
+                    grid[row][col] -= grid[row-1][col-1];
+                }
+    
+                if (grid[row][col] <= k) {
+                    count++;
+                } else {
+                    break;
+                }
+    
+                col++;
+            }
+        }
+        return count;
+    };
