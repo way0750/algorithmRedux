@@ -60,3 +60,26 @@
     if you need to compare with the last element in an new array
         add something to the array already
     this way, you can avoid checking if there is already a head linked list or if array is empty
+
+
+# some ways to keep track max / min
+    the usual way to to do it is by max = Math.max(max, ... )
+    keep on updating the max as you go along
+    but if the max is a range/sub string/sub array
+        then you can just maintain a front and back pointer and move them along
+        and keep track of the condition of the sub section
+            if sub section is valid, only move front
+            if sub section is invalid, move both front and back
+        this saves a lot of computation of max = Math.max(max, ....)
+    yes the sub section sometimes will become invalid as a whole but remember, there is another piece
+        of state, usually like a counter that you can increase or decrease, and that piece of state will
+        help to move the back pointer forward, and sometimes in the future, it will move the sub section
+        out of the sitution where it is invalid.
+
+    Also, the meaning of front - back = the current max range, so even if the data later on become invalid
+        it still doesn't matter, the current max is already preserved by the distance between front and back
+        and it will NEVER shrink too
+        because the back either doesn't move or moves the same speed as the front
+    check out:
+        https://leetcode.com/problems/max-consecutive-ones-iii
+        https://leetcode.com/problems/longest-repeating-character-replacement
