@@ -36,3 +36,24 @@ skill.length is even.
 1 <= skill[i] <= 1000
 
  */
+
+/**
+ * @param {number[]} skill
+ * @return {number}
+ 1 2 3 3 4 5
+
+ */
+ var dividePlayers = function(skill) {
+    skill.sort((a, b) => a-b);
+    const eq = skill[0] + skill[skill.length-1];
+    let sum = 0;
+    for (let i = 0; i < skill.length/2; i++) {
+        const leftNum = skill[i];
+        const rightNum = skill[skill.length - i - 1];
+        if (leftNum + rightNum !== eq) {
+            return -1;
+        }
+        sum += leftNum * rightNum;
+    }
+    return sum;
+};
