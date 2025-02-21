@@ -26,4 +26,29 @@ Constraints:
 1 <= s.length <= 105
 s consists of only the letters 'a', 'b', and 'c'.
 0 <= k <= s.length
+
+
+need to deal with 3 potential situations:
+    xxxxxxxxxxxxxxxx
+    ------
+    shortest string containing k of chars is entirely on the left
+
+    xxxxxxxxxxxxxxxx
+               -----
+    or is entirely on the right
+
+    xxxxxxxxxxxxxxxx
+    ----        ----
+    is partially left and right
+
+instead of looking at the covered area
+look at the opposite of it, look at the left out area
+that's the sliding window
+
+so get a frequency count of all the characters
+then do a sliding window to find the longest one
+    which means we will get the shortest covered area containing all the needed chars
+
+time: O(n)
+space: O(1)
  */
