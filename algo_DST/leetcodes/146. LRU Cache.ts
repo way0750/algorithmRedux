@@ -39,3 +39,133 @@ Constraints:
 At most 2 * 105 calls will be made to get and put.
 
  */
+
+/**
+ * @param {number} capacity
+
+size = 5
+abcde
+
+// add f and remove a for being stale
+// add f to front for most recently used
+bcdef
+
+// access b and put it in front for being the most recently used:
+cdefb
+
+// how to maintain age? and order of age?
+// array splicing is O(n) because the array needs to move items closer to each
+// when it is done in the middle. O(1) for front and end though
+
+can use a doubly linked list to maintain age order
+then have a hash for O(1) to putting and accessing
+what about size? and accessing the last element?
+have an internal counter, update when adding and deleting
+also have a pointer for head and end
+    head for adding and accessing first (most recently used)
+    end for deleting the last element
+
+
+adding
+    put in hash
+    set new node as new head
+    update counter
+accessing
+    because we are using a hash, just hash[input key]
+deleting
+    remove the end and set the 2nd to last element as the new end
+        this is why we need doubly linked list
+ */
+var LRUCache = function(capacity) {
+    this.nodeCount = 0;
+    this.capacity = capacity;
+    this.list = {val: 'first node', next: null, pre: null};
+    this.end = { val: 'ending node', next: null, pre: null};
+
+    this.list.next = this.end;
+    this.end.pre = this.list;
+
+    this.hash = {}; // { key: listNode }
+};
+
+/** 
+ * @param {number} key
+ * @return {number}
+ get val
+    but also need to move node to front
+    */
+LRUCache.prototype.get = function(key) {
+    // if there is key, get val and set the key's node the new head
+    if (!this.hash[key]) return -1;
+    const targetNode = this.hash[key];
+    const preNode = targetNode.pre;
+    const nextNode = targetNode.next;
+    
+    // link up pre to next
+    preNode.next = nextNode;
+    nextNode.pre = preNode;
+
+    // set targetNode as the new first node;
+    const oldFirstNode = this.list.next;
+    // 1: establish head and first node
+    this.list.next = targetNode
+    targetNode.pre = this.list;
+    // 2: establish new head to the old head node
+    targetNode.next = oldFirstNode;
+    oldFirstNode.pre = targetNode;
+
+    return targetNode.val;
+};
+
+/** 
+ * @param {number} key 
+ * @param {number} value
+ * @return {void}
+ */
+LRUCache.prototype.put = function(key, value) {
+    if (this.hash[key]) {
+        this.hash[key].val = value;
+        this.get(key); // move it to front
+    } else {
+        // put it in front
+        const newNode = { key, val: value, pre: null, next: null}
+        const oldFirstNode = this.list.next;
+
+        // link the head to the new node
+        this.list.next = newNode;
+        newNode.pre = this.list;
+
+        // link the new node to the old first node
+        newNode.next = oldFirstNode;
+        oldFirstNode.pre = newNode;
+
+        // add to hash too
+        this.hash[key] = newNode;
+        this.nodeCount++;
+        // remove the last node from the list and the hash
+        if (this.nodeCount > this.capacity) {
+            // preserve the related nodes first
+            const lastNode = this.end.pre
+            const secondToLastNode = lastNode.pre;
+
+            // disconnect lastNode from the list
+            lastNode.pre = null;
+            lastNode.next = null;
+
+            // connect the new last node to the end node:
+            secondToLastNode.next = this.end;
+            this.end.pre = secondToLastNode;
+
+            // remove the target node from the hash as well
+            delete this.hash[lastNode.key];
+            this.nodeCount--;
+        }
+    }
+};
+
+/** 
+ * Your LRUCache object will be instantiated and called as such:
+ * var obj = new LRUCache(capacity)
+ * var param_1 = obj.get(key)
+ * obj.put(key,value)
+ */
