@@ -83,3 +83,9 @@
     check out:
         https://leetcode.com/problems/max-consecutive-ones-iii
         https://leetcode.com/problems/longest-repeating-character-replacement
+
+
+# line sweep technique!!!!
+    2536. Increment Submatrices by One
+    look at the solution for what is line sweep!
+    holy moly!
