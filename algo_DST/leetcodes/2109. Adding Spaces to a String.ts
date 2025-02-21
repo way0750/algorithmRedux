@@ -36,3 +36,33 @@ s consists only of lowercase and uppercase English letters.
 0 <= spaces[i] <= s.length - 1
 All the values of spaces are strictly increasing.
  */
+
+/**
+ * @param {string} s
+ * @param {number[]} spaces
+ * @return {string}
+ just loop normally with the input string
+ set ans to ''
+ keep adding char to the ans, but when index is foun din spaces
+    add space first then add current char to ans
+
+time: O(s + spaces)
+space: same
+
+create a bunch of sub string with space according to spaces
+then concate all of them together at the very end
+
+nnnnnnnnn
+    s  s
+
+ */
+    var addSpaces = function(s, spaces) {
+        let start = 0;
+        spaces.push(s.length);
+        const subStrs = spaces.map((end) => {
+            const subStr = s.slice(start, end);
+            start = end;
+            return subStr;
+        });
+        return subStrs.join(' ');
+    };
