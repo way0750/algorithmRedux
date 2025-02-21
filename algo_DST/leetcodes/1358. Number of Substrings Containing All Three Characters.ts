@@ -26,3 +26,48 @@ Constraints:
 3 <= s.length <= 5 x 10^4
 s only consists of a, b or c characters.
  */
+
+
+/**
+ * @param {string} s
+ * @return {number}
+
+ longest/smallest/largest
+ exactly equal to
+ all of the
+
+
+ abcabc
+ ---1
+ C---2
+ CC---3
+ CCC---4
+
+ find a small sub string containing all the characters
+ then look back and see how many characters are bahind this
+ any character can essentially be part of this sub string anyway
+ so the count of the characters behind it + 1 = all the possible
+    sub string until end of current sub string
+
+aaacb
+CC---3
+
+use sliding window for positive match of existance of abc
+    use freq count
+
+ */
+var numberOfSubstrings = function(s) {
+    const freq = { a: 0, b: 0, c: 0 };
+    let count = 0;
+    let back = -1;
+    for (let i = 0; i < s.length; i++) {
+        const char = s[i];
+        freq[char]++;
+        while (freq.a && freq.b && freq.c) {
+            // get the shortest window
+            freq[s[++back]]--;
+        }
+        count += (back + 1);
+    }
+    return count;
+};
