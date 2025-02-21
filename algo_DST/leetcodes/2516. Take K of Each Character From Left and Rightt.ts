@@ -52,3 +52,23 @@ then do a sliding window to find the longest one
 time: O(n)
 space: O(1)
  */
+
+var takeCharacters = function(s, k) {
+    const freq = { a: 0, b: 0, c: 0 };
+    for (let i = 0; i < s.length; i++) freq[s[i]]++;
+
+    if (Math.min(freq.a, freq.b, freq.c) < k) return -1;
+
+    let max = 0;
+
+    let back = -1;
+    for (let front = 0; front < s.length; front++) {
+        freq[s[front]]--;
+        while (Math.min(freq.a, freq.b, freq.c) < k) {
+            freq[s[++back]]++;
+        }
+        max = Math.max(max, front - back);
+    }
+
+    return s.length - max;
+};
