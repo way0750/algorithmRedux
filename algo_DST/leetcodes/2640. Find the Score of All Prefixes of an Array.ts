@@ -36,3 +36,32 @@ Constraints:
 1 <= nums.length <= 105
 1 <= nums[i] <= 109
  */
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+input nums
+prefix arr: each i = arr[i] + max of arr[0..i] (inclusive)
+conversion: running sum of conversions including self
+
+
+so:
+self + largest so far + running sum
+using a stack to keep track of largest so far
+maintain a running sum
+time and space: O(n)
+ */
+var findPrefixScore = function(nums) {
+    let largest = nums[0];
+    let runningSum = 0;
+    const ans = [];
+    for (let i = 0; i < nums.length; i++) {
+        const num = nums[i];
+        if (num > largest) {
+            largest = num;
+        }
+        runningSum += num + largest;
+        ans.push(runningSum);
+    }
+    return ans;
+};
