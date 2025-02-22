@@ -33,3 +33,77 @@ Constraints:
 1 <= k <= 109
 
  */
+
+
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+
+the longer might contain negative number, resulting in lower sum
+look back index and num
+and a prefix sum
+    prefix sum helps to find the subarray sum
+look back index helps to jump to the target index where the sub array starts
+    look back, ex, nums[i] = 8, k = 5 then 8+5=13 and 8-5=3 because we are
+        looking back for a number in the absolute diff is k
+
+1 2 3 4  5  6
+1 3 6 10 15 21
+21-10=11
+
+-1 -2 -3 -4
+-1 -3 -6 -10
+
+
+
+13.....-1000,-200000..... 13..... 8 k=5
+or
+13 ..... 9999999 ...... 13 ..... 8
+so compare all look backs?
+
+ */
+var maximumSubarraySum = function(nums, k) {
+    const prefixes = [];
+    const lookBacks = {}; // { target: i}
+    let sum = 0;
+    let max = -Infinity;
+    for (let i = 0; i < nums.length; i++) {
+        sum += nums[i]
+        prefixes[i] = sum;
+        const num = nums[i];
+
+        if (lookBacks.hasOwnProperty([num + k])) {
+            backIndex = lookBacks[num + k];
+            const subSum = prefixes[i] - (prefixes[backIndex-1] || 0);
+            max = Math.max(max, subSum);
+        }
+        if (lookBacks.hasOwnProperty([num - k])) {
+            backIndex = lookBacks[num - k];
+            const subSum = prefixes[i] - (prefixes[backIndex-1] || 0);
+            max = Math.max(max, subSum);
+        }
+
+        // keep the smaller sum
+        if (lookBacks.hasOwnProperty(num)) {
+            // check prefix sum
+            if (prefixes[lookBacks[num]] > sum) {
+                lookBacks[num] = i;
+            }
+        } else {
+            lookBacks[num] = i
+        }
+    }
+
+    return max === -Infinity ? 0 : max;
+};
+
+/**
+k = 5
+[4,10,10, 5, 3]
+ 4 14 24 29 32
+
+-1 -2 -3 -4
+-1 -3 -6 -10
+
+ */
