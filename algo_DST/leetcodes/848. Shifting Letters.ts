@@ -32,3 +32,36 @@ shifts.length == s.length
 0 <= shifts[i] <= 109
 
  */
+
+/**
+ * @param {string} s
+ * @param {number[]} shifts
+ * @return {string}
+ -   3
+ --  5
+ --- 9
+
+ 3
+ 8 5
+ 17 14 9
+
+sum = 14
+ 17 14 9
+
+ charCode + 17
+so do prefix sum from the end
+maintain a running sum (from the end)
+then map the prefix sum array with s[i] + the sum
+ */
+var shiftingLetters = function(s, shifts) {
+    let sum = 0;
+    const ans = [];
+    for (let i = shifts.length-1; i > -1; i--) {
+        sum += shifts[i];
+        const charCode = s[i].charCodeAt() - 97;
+        const newCharCode = (charCode + sum) % 26;
+        ans.unshift(String.fromCharCode(newCharCode + 97));
+    }
+
+    return ans.join('');
+};
