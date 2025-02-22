@@ -34,3 +34,39 @@ sum(words[i].length) <= 3 * 105
 1 <= queries.length <= 105
 0 <= li <= ri < words.length
  */
+
+/**
+ * @param {string[]} words
+ * @param {number[][]} queries
+ * @return {number[]}
+ "aba","bcb","ece","aa","e"
+the prefix sum of amount of words that start and end with v at each index
+
+"aba","bcb","ece","aa","e"
+prefix sum:
+ 0.     1.    2.   3.   4
+"aba","bcb","ece","aa","e"
+  1.    1.     2.   3.  4
+then for each query
+ex: 1, 4
+index 4 - index 1's prefix sum
+4 - 1 = 3
+so build prefix sum from left to right
+first
+then go through the queries
+time: O(words.legnth + queries.length)
+space: O(words.length for prefix sum)
+ */
+const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+var vowelStrings = function(words, queries) {
+    let sum = 0;
+    const prefixes = words.map((word) => {
+        if (vowels.has(word[0]) && vowels.has(word[word.length-1])) {
+            sum++;
+        }
+        return sum;
+    });
+    return queries.map(([start, end]) => {
+        return prefixes[end] - (prefixes[start - 1] || 0)
+    });
+};
