@@ -65,3 +65,15 @@ var findPrefixScore = function(nums) {
     }
     return ans;
 };
+
+var findPrefixScore = function(nums) {
+    let largest = nums[0];
+    let runningSum = 0;
+    const ans = [];
+    for (let i = 0; i < nums.length; i++) {
+        largest = Math.max(largest, nums[i])
+        runningSum += nums[i] + largest;
+        ans.push(runningSum);
+    }
+    return ans;
+};
