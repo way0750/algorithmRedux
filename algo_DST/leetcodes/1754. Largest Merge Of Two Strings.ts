@@ -32,4 +32,40 @@ Constraints:
 
 1 <= word1.length, word2.length <= 3000
 word1 and word2 consist only of lowercase English letters.
+
+solution:
+
+you can't just compare char by char and take the larger one you have to also look into the future and get ready to take larger chars too
+
+225
+223
+
+obvious you need to take 22 but from which string?
+22
+5
+223
+or
+225
+22
+3
+
+you wanna take some 2s and then get closer to 5 as soon as possible
+
+another case:
+994
+993
+in this case you can't just take the entire 994 and then take 993
+you wanna take all the 9s first then take 4 and 3
+
+use basic string comparison to compare the entire strings to determine which one to take 1 character from
+and that's it.
+
+time: O(m**2+n**2)
+space: O(m+n + max of (m and n))
  */
+var largestMerge = function(word1, word2) {
+    if (!word1.length || !word2.length) return word1 || word2;
+    return word1 > word2
+        ? word1[0] + largestMerge(word1.slice(1), word2)
+        : word2[0] + largestMerge(word1, word2.slice(1));
+};
