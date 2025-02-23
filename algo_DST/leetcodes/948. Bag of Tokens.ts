@@ -49,3 +49,60 @@ Constraints:
 0 <= tokens[i], power < 104
 
  */
+
+/**
+ * @param {number[]} tokens
+ * @param {number} power
+ * @return {number}
+ so gain as much power as possible
+ then pay as many token as possible to get a lot of scores?
+
+play 1 score and you get access to the largest token, gaining the power
+    use score to get high power
+play power, and you can get more scores
+    use power to get more scores
+
+play power to get scores to get more power to get more scores
+
+play power against the least powerful to get score
+    thereby preserving as much power as possible
+then use score to get the highest power
+    then use the accumulated higher power to play the above again
+
+if the tokens are sorted:
+                  1 2 3 4 5 5 5 6 7 8 9
+play power for scores ->>> 
+                            <<<<---play scores for power
+you wanna go toward to right to as far as possible
+and go toward the left as little as possible
+prefix sum?
+
+have two pointers going from left ->
+and <- from right
+
+always play power if you can --power and ++score
+    else if score > 0 spend score
+    else return
+keep going left < right
+default return
+  1 2 3  4  5  5  5  6  7  8  9
+
+ */
+  var bagOfTokensScore = function(tokens, power) {
+    tokens.sort((a, b) => a - b);
+    let score = 0;
+    let max = 0;
+    let left = 0;
+    let right = tokens.length;
+    while (left < right) {
+        if (power >= tokens[left]) {
+            power -= tokens[left++];
+            max = Math.max(max, ++score);
+        } else if (score--) {
+            power += tokens[--right];
+        } else {
+            return max;
+        }
+    }
+    return max;
+};
