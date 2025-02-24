@@ -89,3 +89,19 @@
     2536. Increment Submatrices by One
     look at the solution for what is line sweep!
     holy moly!
+
+    some variation of line sweep:
+    https://leetcode.com/problems/describe-the-painting
+
+# string match:
+    matching one string t against string s
+        to see if string t is a sub sequent of string s
+        or find string t's characters in string s, as they appear in the order
+            in string t
+        just keep two pointers, one on t, one on s
+            compare current chars
+            if same then move both forward
+            else only move s forward
+            you will get something like
+            TFFFTTTTFFFFFTT
+    https://leetcode.com/problems/append-characters-to-string-to-make-subsequence
