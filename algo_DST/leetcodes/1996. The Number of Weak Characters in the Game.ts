@@ -31,3 +31,67 @@ properties[i].length == 2
 1 <= attacki, defensei <= 105
 
  */
+
+/**
+ * @param {number[][]} properties
+ * @return {number}
+ 1,5; 10,4; 4,3
+ 1,5; 4,3; 10,4
+ 
+ 5-5, 6-3, 3-6
+ 3-6, 5-5, 6-3
+
+ 9, 9, 10
+ 5-5, 3-6, 6-3
+
+ 1-5, 10-4, 4-3
+ 6, 14, 7
+
+ 1-5, 4-3, 10-4
+ 6.   7.   10
+
+ 1-5, 10-4, 4-3
+ 1-5, 4-3, 10-4
+
+ 4-3, 10-4, 1-5
+
+ 4-1 and 10-4, the relative order maintains
+
+
+ 1-5, 10-4, 4-3
+
+a - b && b - a
+1-5, 4-2, 4-3, 10-3, 10-4
+
+
+5-5, 6-3, 3-6
+3-6, 5-5, 6-3
+6 5 3 length doesn't change so none
+
+so first sort the [0] in ascending order, if can't resolve the sort by [1]
+    in descending order
+
+then loop from the sorted array looking back to remove any one with a smaller [1]
+time: O(nlogn + n**2)
+space: O(n);
+ */
+var numberOfWeakCharacters = function(properties) {
+    const len = properties.length;
+    const sorted = properties.sort((a, b) => {
+        const result = a[0] - b[0];
+        if (result === 0) {
+            return b[1] - a[1];
+        } else {
+            return result;
+        }
+    });
+
+    let count = 0;
+    let curMax = -Infinity;
+    for (let i = sorted.length-1; i > -1; i--) {
+        if (sorted[i][1] < curMax) count++
+        curMax = Math.max(curMax, sorted[i][1]);
+    }
+
+    return count;
+};
