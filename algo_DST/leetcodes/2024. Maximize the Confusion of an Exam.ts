@@ -38,3 +38,75 @@ answerKey[i] is either 'T' or 'F'
 1 <= k <= n
 
  */
+
+/**
+ * @param {string} answerKey
+ * @param {number} k
+ * @return {number}
+ basically get the longest string where the different char count <= k
+
+ sub string length - max char count = the other char's count (stay <= k)
+ so no need to know T or F anymore
+ have two pointers
+ back and front
+ keep on moving front forward
+    and increasing the frequency count of each char
+    update the max frequency of char in general (T or F doesn't matter)
+    when length - max frequency > k
+        move back pointer forward ALONG with front
+            to maintain the window. This window will never get shorten
+                it will maintain or increase
+return front - back
+time: O(n)
+space: O(1)
+ */
+// var maxConsecutiveAnswers = function(answerKey, k) {
+//     let freq = {T: 0, F: 0};
+//     let maxCharCount = 0;
+//     let back = -1;
+//     let front = -1;
+//     while (++front < answerKey.length) {
+//         const frontChar = answerKey[front];
+//         freq[frontChar]++;
+//         maxCharCount = Math.max(maxCharCount, freq[frontChar]);
+//         if ((front - back) - maxCharCount > k) {
+//             const backChar = answerKey[++back];
+//             freq[backChar]--;
+//         }
+//     }
+
+//     return front - back - 1;
+// };
+
+const maxConsecutiveAnswers = function (answerKey, k) {
+    let T = 0;
+    let F = 0
+    let back = -1;
+    let front = -1;
+    while (++front < answerKey.length) {
+        answerKey[front] === 'T' ? T++ : F++;
+        if (Math.min(F, T) > k) {
+            answerKey[++back] === 'T' ? T--  : F--;
+        }
+    }
+    return front - back - 1;
+}
+
+/**
+ * 
+ * some basic ideas here:
+ * sliding window to find sub string
+ * no need to reduce sliding window size, just keep the found current window range/size. Just keep on moving back pointer forward by 1 following the front pointer
+ * then return the currently found window size by front - back - 1
+ *  ( - 1 because the front pointer has already gone out of the range of the string size)
+ * 
+ * 
+ * Note:
+ * in other cases where you have more than just T and F, you should maintain a
+ * max char frequency to keep track of the max frequency of any char you have
+ * seen so far in any where of the string
+ * then use it to find if k has been used up by
+ *  front - back - max char frequency = all the non-max char (for
+ * comparing to k)
+ * 
+ */
