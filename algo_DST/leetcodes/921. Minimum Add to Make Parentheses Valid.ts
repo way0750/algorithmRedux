@@ -27,3 +27,34 @@ Constraints:
 s[i] is either '(' or ')'.
 
  */
+
+/**
+ * @param {string} s
+ * @return {number}
+ use a stack to keep track of opening parens
+    use a counter too
+    if open paren, counter++
+    if close counter--
+    if close but stack is empty counter++
+    only put opening parens in the stack
+    time: O(n)
+    space: O(n)
+
+
+    ))((
+ */
+    var minAddToMakeValid = function(s) {
+        let open = 0;
+        let close = 0;
+        for (let i = 0; i < s.length; i++) {
+            const char = s[i];
+            if (char === '(') {
+                open++
+            } else if (open) {
+                    open--;
+            } else {
+                close++;
+            }
+        }
+        return open + close;
+    };
