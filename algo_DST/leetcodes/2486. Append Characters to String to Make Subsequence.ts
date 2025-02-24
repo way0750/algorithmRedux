@@ -34,3 +34,20 @@ Constraints:
 s and t consist only of lowercase English letters.
 
  */
+
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {number}
+ */
+var appendCharacters = function(s, t) {
+    let si = 0;
+    let ti = 0;
+    while (si < s.length && ti < t.length) {
+        if (s[si] === t[ti]) {
+            ti++
+        }
+        si++;
+    }
+    return t.length - ti;
+};
