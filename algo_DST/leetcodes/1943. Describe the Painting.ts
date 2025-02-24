@@ -56,3 +56,95 @@ Each colori is distinct.
 
  */
 
+/**
+ * @param {number[][]} segments
+ * @return {number[][]}
+
+ [[1,4,5],[4,7,7],[1,7,9], [2,6,6]]
+ sort by start, then by end
+ [1,4,5],[1,7,9],[4,7,7]
+ then combin if can:
+[1,4,14] [4,7,16]
+
+
+[1,4,5],[4,7,7],[1,7,9],[2,6,6]
+
+[1,4,5],[1,7,9],[2,6,6],[4,7,7]
+[1,4,14,], [4,7,9], 
+
+wait, line sweep?!!!
+mark the starting point and end pointer and add value ex: 5, and -5?!!!
+
+  0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+     5       -5
+     9                -9
+        6          -6
+              7       -7
+
+    14  6     2    -6-16
+    14 20 20 22    16  0
+    
+    14 1 : so [1, 2]
+    20 2..3  [2, 4]
+    22: 4..5 so [4,6]
+    16: 6 so [6,7]
+
+
+[1,4,5],[4,7,7],[1,7,9]
+
+  0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+    14        2       -16
+
+    current number 14 @ index 1
+    [1,4,14]
+    [4,7,16]
+
+    what if there are empty ranges that are super far apart?
+    ex:
+    ---                  ---
+    keep track of the indexes where you mark start and end
+    and only go to those indexes
+        sort them, then go through them
+
+ */
+        var splitPainting = function(segments) {
+            const rec = {};
+            const indexes = new Set();
+            for (let i = 0; i < segments.length; i++) {
+                const [start, end, color] = segments[i];
+                rec[start] = (rec[start] || 0) + color;
+                rec[end] = (rec[end] || 0) - color;
+                indexes.add(start).add(end);
+            }
+        
+            const sortedIndexes = [...indexes.values()].sort((a, b) => a - b);
+        
+            let color = 0;
+            let prev = 0;
+            const intvl = [];
+            for (let i = 0; i < sortedIndexes.length; i++) {
+                const index = sortedIndexes[i];
+                if (color) {
+                    intvl.push([prev, index, color]);
+                }
+                color += rec[index];
+                prev = index;
+            }
+            return intvl;
+        };
+        
+        /**
+        
+        4,16,12
+        18,19,13
+        12,16,3
+        13,16,6
+        
+        12, 13, 14, 15, 16, 17, 18
+        12             -12
+                                13
+         3              -3
+             6          -6
+         
+        15  21  21  21   0 0 0  13     
+         */
