@@ -161,3 +161,26 @@ Application:
 Application:
     if you are keep the prefix/previous states continuesly in each location
     you are probably looking for a range
+
+
+
+# Tree and graphs:
+    should know all the ways to:
+        build trees, graphs
+        DFS, BFS using recursion or ieractive
+
+# BFS on matrix and graph:
+    using a queue to ensure going through each breadth first
+    and use a while loop to process nodes one by one
+    if input is a matrix, you can also use a direction offsets array to get next positions:
+    [[+1, 0], [-1, 0], [0, +1], [0, -1]]
+    make sure to add each node to `visited` right after putting it into the queue
+    if need to keep track of level, just put a level num in the position too [row, col, level]
+
+# DFS:
+    use recursion as the iteraction/loop, and the recursive stack as list/sequence management
+
+    recursiveCall(nextPos1)
+    recursiveCall(nextPos2)
+    recursiveCall(nextPos3)
+    recursiveCall(nextPos4)
