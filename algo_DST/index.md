@@ -118,6 +118,10 @@ Group 4: Dynamic Programming & Greedy
   33. Longest Increasing Subsequence (LeetCode #300)
   34. House Robber II (LeetCode #213)
 
+q = [...document.querySelectorAll('#findme > div')]
+    .filter((ele) => !ele.querySelector('div > div > svg'))
+    .map((ele) => ele.querySelector('a').href)
+copy(q)
 
 
 # Two pointers:
