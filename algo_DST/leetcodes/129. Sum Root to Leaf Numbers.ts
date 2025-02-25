@@ -39,3 +39,39 @@ The depth of the tree will not exceed 10.
 
  */
 
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ dfs:
+ pass in a running sum
+    will only add to it at the leaf node
+do a dfs accumulating nums along the way
+    til the leaf node
+    num + sum
+    return new sum
+
+base case: leaf node
+    do math
+always return the current running sum
+what to do with return:
+    pass it to the next child's call
+    or pass it all the way up
+how to make problem smaller:
+    just recursively left then right
+time: O(N)
+space: O(logN) for the recursive stack
+ */
+var sumNumbers = function(root, num = '', sum = 0) {
+    if (!root) return 0;
+    if (!root.left && !root.right) return +(num + root.val) + sum;
+    const leftSum = (root.left && sumNumbers(root.left, num + root.val, sum) || sum);
+    return (root.right && sumNumbers(root.right, num + root.val, leftSum)) || leftSum;
+};
