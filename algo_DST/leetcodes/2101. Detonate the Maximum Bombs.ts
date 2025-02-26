@@ -46,3 +46,47 @@ bombs[i].length == 3
 1 <= xi, yi, ri <= 105
 
  */
+
+/**
+ * @param {number[][]} bombs
+ * @return {number}
+get the slope = squareRoot(x**2 + y**2)
+    if slope <= r, it's connected
+if we are to make a graph by going through all nodes and to connect all if possible
+    it's gonna be n**2 of run time
+    by going through each node against the rest
+    it could be that A->B but B is not connected to A
+once done
+    do a depth first search node by node
+        and see who blows up the most bombs
+ */
+        var maximumDetonation = function(bombs) {
+            const graph = Array(bombs.length) // [ith ith ith [] [] []]
+            for (let i = 0; i < bombs.length; i++) {
+                const [x, y, r] = bombs[i];
+                graph[i] = graph[i] || [];
+                // now go through the rest of the bombs to see if current node connects to any
+                for (let j = 0; j < bombs.length; j++) {
+                    if (j === i) continue;
+                    const [xx, yy] = bombs[j];
+                    const xDiff = Math.abs(x - xx);
+                    const yDiff = Math.abs(y - yy);
+                    const slop = Math.sqrt(xDiff**2 + yDiff**2);
+                    if (slop <= r) graph[i].push(j);
+                }
+            }
+            const dfs = (bombI, visited) => {
+                if (visited.has(bombI)) return;
+                visited.add(bombI);
+                const neighbors = graph[bombI];
+                for (let i = 0; i < neighbors.length; i++) dfs(neighbors[i], visited);
+            }
+            let max = 0;
+            for (let bombI = 0; bombI < graph.length; bombI++) {
+                const visited = new Set();
+                dfs(bombI, visited);
+                max = Math.max(max, visited.size);
+            }
+        
+            return max;
+        };
