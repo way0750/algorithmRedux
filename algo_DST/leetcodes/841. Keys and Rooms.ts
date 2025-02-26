@@ -34,3 +34,24 @@ n == rooms.length
 All the values of rooms[i] are unique.
 
  */
+/**
+ * @param {number[][]} rooms
+ * @return {boolean}
+ do a depth first search to visit all the from 0
+ then compare visited room count vs actually room counr
+ if same: true
+ else false
+ */
+ var canVisitAllRooms = function(rooms) {
+    const visited = new Set();
+    const dfs = (roomId) => {
+        if (visited.has(roomId)) return;
+        visited.add(roomId);
+        const keys = rooms[roomId];
+        for (let i = 0; i < keys.length; i++) {
+            dfs(keys[i]);
+        }
+    }
+    dfs(0);
+    return visited.size === rooms.length;
+};
