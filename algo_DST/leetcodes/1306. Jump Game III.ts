@@ -34,3 +34,33 @@ Constraints:
 0 <= start < arr.length
 
  */
+/**
+ * @param {number[]} arr
+ * @param {number} start
+ * @return {boolean}
+ 0 1 2 3 4 5 6
+ 4,2,3,0,3,1,2
+ for each value, there are at most 2 directions you can go
+ so just check all of them
+ kinda like a depth first search using recursion
+    make sure to provide a set to avoid infinite loop
+base case:
+    found 0 return true
+    no more path return false
+how to make problem smaller:
+    just check i+val and i-val
+what to always return:
+    boolean val
+what to do with return:
+    if true, just keeps on returning it
+    if false, check other path and return whatever is the result
+time: O(n)
+space: O(n)
+ */
+var canReach = function(arr, curIndex) {
+    if (curIndex > arr.length-1 || curIndex < 0 || arr[curIndex] < 0) return false;
+    arr[curIndex] *= -1;
+    return arr[curIndex] === 0
+        || canReach(arr, curIndex + arr[curIndex])
+        || canReach(arr, curIndex - arr[curIndex])
+};
