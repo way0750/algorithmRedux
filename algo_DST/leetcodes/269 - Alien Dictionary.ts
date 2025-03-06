@@ -35,4 +35,23 @@ Constraints:
 1 <= words.length <= 100
 1 <= words[i].length <= 100
 words[i] consists of only lowercase English letters.
+
+
+
+Input: words = ["wrt","wrf","er","ett","rftt"]
+     e-----
+     V    V
+w -> r -> t
+     V    ^
+     f-----
+
+
+werft
+make graph
+    wrt means w -> r -> t
+then do topological search
+add pathSearched and graphSearched
+set sorted = []
+time: O(words.length * words[maxLength].length + unique chars)
+spacel: O(unique chars)
  */
