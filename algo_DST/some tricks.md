@@ -105,3 +105,15 @@
             you will get something like
             TFFFTTTTFFFFFTT
     https://leetcode.com/problems/append-characters-to-string-to-make-subsequence
+
+# in order going through the entire Binary tree or binary search tree
+    yeah sure left self right. But you have been thinking about only 3 nodes, but what if there is a ton of nodes?
+    Same idea:
+        go alllll the way down to the left sub tree
+        then that left sub tree's parent / self
+        go to right node
+            but recursive, it will always go to each node's furthest left sub tree
+        so
+            search(node.left)
+            node.val
+            search(node.right)
