@@ -55,3 +55,49 @@ set sorted = []
 time: O(words.length * words[maxLength].length + unique chars)
 spacel: O(unique chars)
  */
+
+export const makeGraph = (words) => {
+    const graph = {} // { char: [neighbots...] }
+    for (let i = 0; i < words.length; i++) {
+        const curWord = words[i];
+        const nextWord = words[i+1] || '';
+        let index = 0;
+        while (curWord[index] === nextWord[index]) index++;
+        if (curWord[index] && nextWord[index]) {
+            const char = curWord[index];
+            graph[char] = graph[char] || {};
+
+            const nextChar = nextWord[index];
+            graph[nextChar] = graph[nextChar] || {};
+
+            graph[char][nextChar] = nextChar;
+        }
+    }
+
+    return graph;
+}
+
+const makeDictionary = (words) => {
+    const graph = makeGraph(words);
+    const ans = [];
+    const graphVisited = new Set();
+
+    const dfs = (char, pathVisited) => {
+        if (pathVisited.has(char)) return false;
+        if (graphVisited.has(char)) return true;
+        pathVisited.add(char);
+        graphVisited.add(char);
+        for (let neighbor in graph[char]) {
+            if (dfs(neighbor, pathVisited) === false) return false;
+        }
+        ans.unshift(char);
+        pathVisited.delete(char);
+        return true;
+    };
+    for (let char in graph) {
+        // if return is false, then that means there is a cycle
+        dfs(char, new Set());
+    }
+
+    return ans.join('');
+}
