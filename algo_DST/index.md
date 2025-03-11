@@ -99,6 +99,7 @@ Group 3: Recursion & Backtracking
 - Backtracking:
   23. Generate Parentheses (LeetCode #22)
   24. Word Search (LeetCode #79)
+
 - Permutations & Combinations:
   25. Permutations (LeetCode #46)
   26. Combinations (LeetCode #77)
@@ -122,6 +123,14 @@ q = [...document.querySelectorAll('#findme > div')]
     .filter((ele) => !ele.querySelector('div > div > svg'))
     .map((ele) => ele.querySelector('a').href)
 copy(q)
+
+
+# some algorithms that I should get to know:
+  Eulerian path
+  Taxicab geometry
+  Dijkstra's algorithm
+
+  the game is to find a way to quickly learn them
 
 
 # Two pointers:
