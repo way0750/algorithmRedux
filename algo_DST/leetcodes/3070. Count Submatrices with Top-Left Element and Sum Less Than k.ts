@@ -88,3 +88,46 @@ time and space:
         }
         return count;
     };
+
+
+const makeK = (str) => {
+    let zeroCount = 0;
+    let idx = str.length-1;
+    while (str[idx] === '0') zeroCount++;
+    const k = Math.floor(zeroCount / 3);
+    const leftOver = zeroCount % 3;
+    let numStr = str.slice(0, idx+1);
+    numStr += '0'.repeat(leftOver);
+    return `${numStr}k${k}`;
+}
+
+function findCourseOrder (n, pre) {
+    // make graph : [0, 1, {2: true, 3: true}]
+    // course -> dependency
+    const graph = Array(n).fill(null).map(() => ({}));
+    for (let [course, dependency] of pre) {
+        graph[course][dependency] = true;
+    }
+    // go through the graph
+    // make sure to add both vistedOnGraph
+    // and vistedOnPath
+    const ans = [];
+    const visitedOnGraph = new Set();
+    const dfs = (node, visitedOnPath) => {
+        if (visitedOnPath.has(node)) return false; // false for cycle detected. no order possible
+        if (visitedOnGraph.has(node)) return true; // already searched, just early return
+        visitedOnPath.add(node);
+        visitedOnGraph.add(node);
+        // now go through all neighbors:
+        for (let nodeStr in graph[node]) {
+            if (dfs(+nodeStr, visitedOnPath) === false) return false;
+        }
+        ans.unshift(node);
+        return true;
+    }
+
+    for (let node = 0; node < n; node++) {
+        if (dfs(node, new Set()) === false) return [];
+    }
+    return ans;
+}
