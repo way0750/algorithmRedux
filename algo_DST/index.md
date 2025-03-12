@@ -99,7 +99,6 @@ Group 3: Recursion & Backtracking
 - Backtracking:
   23. Generate Parentheses (LeetCode #22)
   24. Word Search (LeetCode #79)
-
 - Permutations & Combinations:
   25. Permutations (LeetCode #46)
   26. Combinations (LeetCode #77)
@@ -197,3 +196,37 @@ Application:
     recursiveCall(nextPos2)
     recursiveCall(nextPos3)
     recursiveCall(nextPos4)
+
+# back tracking:
+1. What Are the Options?
+Options: The possible choices or decisions you can make at each step to build a partial solution.
+
+Example: In the N-Queens problem, the options are the columns where you can place a queen in the current row.
+Example: In permutations, the options are the remaining elements not yet included in the current permutation.
+
+2. What Is the Shared Container for Solutions?
+Shared Container: A data structure (e.g., list, array, set) that tracks the current partial solution as you build it.
+
+Example: In permutations, a list tracks the current sequence of elements.
+Example: In the Knapsack problem, a list tracks the items included in the knapsack.
+
+3. How to Add/Make a Choice and Remove It?
+Add a Choice: Append the chosen option to the shared container.
+
+Example: In permutations, add an element to the current sequence.
+Remove a Choice: Undo the last decision to reset the state for exploring other options.
+Example: In permutations, remove the last element from the sequence (list.pop()).
+
+4. Validation: How Do I Know if a Partial Solution Is Valid?
+Validation Check: A function that evaluates whether the current partial solution satisfies the problem’s constraints.
+
+Example: In the N-Queens problem, check if the current queen placement doesn’t attack any previously placed queens.
+Example: In Sudoku, check if the current number placement doesn’t violate row, column, or subgrid rules.
+
+5. How Do I Know if Subsequent Progress Should Be Made?
+Pruning: If the partial solution is invalid, stop exploring that branch (prune it).
+
+Example: In the Knapsack problem, if adding an item exceeds the weight limit, skip that item.
+Base Case: If the partial solution is complete, process it (e.g., save it or return it).
+
+but of course you also need to deal with recursion as well
