@@ -225,8 +225,33 @@ Example: In Sudoku, check if the current number placement doesn’t violate row,
 
 5. How Do I Know if Subsequent Progress Should Be Made?
 Pruning: If the partial solution is invalid, stop exploring that branch (prune it).
-
 Example: In the Knapsack problem, if adding an item exceeds the weight limit, skip that item.
 Base Case: If the partial solution is complete, process it (e.g., save it or return it).
 
 but of course you also need to deal with recursion as well
+
+
+there seems to be a top to bottom and bottom to top way to do back tracking
+  top to bottom:
+    pass down a shared container to build solution
+    you would make a decision and add to the container
+    later you would remove the decision as you test other other decisions
+  bottom to:
+    you reduce the problem and pass it down, and there is no single shared container
+      decision is made when the problem is reduced in someway
+    but you don't need to remove the decision all because there is no single shared container
+    then on the way back, if there are legits solution(s) you add current decision to the returned
+      partial solution
+
+both follow the make one decision and pass partial solution or reduced problem down the decision tree
+
+which one to use:
+  if the input/problem is liner, ex restore IP addresses from string,
+    and you can just chop the input and pass a shorter version down
+    use bottom to top?
+  if you need to jump around all over the place to data from earlier part of the problem/input
+    ex, permutation
+    then share a single path container
+  
+  make a decision, add to the shared container
+  make a decision, reduce the input/problem
