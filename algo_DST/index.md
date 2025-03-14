@@ -269,3 +269,39 @@ which one to use:
 # instead of having one shared container, you can also have multiple:
 https://leetcode.com/problems/matchsticks-to-square/description/
 there are 4 in this case!
+other ideas for shared container:
+  matrix
+  string
+  running sum
+
+# to avoid using the same choice over and over when the challenge doesn't allow it
+ex, AAAA output all combos:
+A
+AA
+AAA
+AAAA
+
+but using the same old back track will end up:
+0123
+AAAA
+
+01  :AA
+012 :AAA
+....
+12  :AA
+123 :AAA
+
+you will need A for one round but never again. how?
+collaps all options into 1 unique one
+  and count its frequency
+  then frequency now ALSO become an option
+    ex: use 1 frequency, not use 1 frequency, etc...
+  so now go through each unique option
+    and then use frequency as an option as well
+  once done with the unique option, you will simple move on
+    thereby doing the: use it for the first round but avoid it later
+
+And the example above wouldn't happen
+  because: 012 and 123 they use the same amount of of As.
+  and so both patterns are exactly the same and cover by the
+  consuming of the same frequencies.

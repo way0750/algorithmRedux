@@ -7,3 +7,9 @@ https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parenthese
 
 # again, just map out all the possible solutions:
     https://leetcode.com/problems/next-greater-numerically-balanced-number/solutions/1537485/fastest-code-so-far/
+
+# back tracking:
+how to deal with duplicated options
+or have multiple types of options
+check AI for sample code
+https://leetcode.com/problems/letter-tile-possibilities/description/
