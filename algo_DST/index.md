@@ -255,3 +255,13 @@ which one to use:
   
   make a decision, add to the shared container
   make a decision, reduce the input/problem
+
+
+# iteration when back tracking:
+  you don't have to always use a for loop or a while loop, you can do a "use" "not use"
+  basically choose current option do a recursive call
+  not choosing current option do a recursive call
+
+  another way to look at it:
+    do_something(index)
+    recursive(index+1)
