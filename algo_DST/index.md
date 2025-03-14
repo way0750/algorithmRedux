@@ -265,3 +265,7 @@ which one to use:
   another way to look at it:
     do_something(index)
     recursive(index+1)
+  
+# instead of having one shared container, you can also have multiple:
+https://leetcode.com/problems/matchsticks-to-square/description/
+there are 4 in this case!

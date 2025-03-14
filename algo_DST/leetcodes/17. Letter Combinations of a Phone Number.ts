@@ -15,7 +15,7 @@ const dToS = {
     0: [''],
 };
 
-var letterCombinations = function(digits, idx) {
+var letterCombinations = function(digits) {
     const ans = []
     if (!digits) return ans;
     const dfs = (idx, str) => {
@@ -25,8 +25,7 @@ var letterCombinations = function(digits, idx) {
         }
         const choices = dToS[digits[idx]];
         for (let choice of choices) {
-            const newStr = str + choice;
-            dfs(idx+1, newStr);
+            dfs(idx+1, str + choice);
         }
     }
     dfs(0, '');
