@@ -28,3 +28,10 @@
 
 # data partitioning vs sharding
     what's the difference
+
+# resiliency
+
+# message queue:
+single message queue
+pub-sub
+    many to many
