@@ -17,7 +17,7 @@ smallest = [
 ]
 can't find anything? -1
  */
-var coinChange = function(coins, amount) {
+export var coinChange = function(coins, amount) {
     //inclusive of amount
     // using Infinity so that anyother value can compare to it and set new value
     const prevAmounts = Array(amount+1).fill(Infinity)
