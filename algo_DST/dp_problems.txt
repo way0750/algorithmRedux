@@ -1,0 +1,82 @@
+Dynamic Programming (DP) Problems Categorized by Type
+
+1️⃣ 1D DP (Linear DP)
+Easy:
+1. Climbing Stairs (70) - https://leetcode.com/problems/climbing-stairs/
+2. House Robber (198) - https://leetcode.com/problems/house-robber/
+3. N-th Tribonacci Number (1137) - https://leetcode.com/problems/n-th-tribonacci-number/
+4. Min Cost Climbing Stairs (746) - https://leetcode.com/problems/min-cost-climbing-stairs/
+
+Medium:
+1. House Robber II (213) - https://leetcode.com/problems/house-robber-ii/
+2. Delete and Earn (740) - https://leetcode.com/problems/delete-and-earn/
+3. Coin Change (322) - https://leetcode.com/problems/coin-change/
+4. Partition Equal Subset Sum (416) - https://leetcode.com/problems/partition-equal-subset-sum/
+
+2️⃣ 2D DP (Grid/Matrix DP)
+Easy:
+1. Unique Paths (62) - https://leetcode.com/problems/unique-paths/
+2. Minimum Path Sum (64) - https://leetcode.com/problems/minimum-path-sum/
+3. Maximal Square (221) - https://leetcode.com/problems/maximal-square/
+4. Count Square Submatrices with All Ones (1277) - https://leetcode.com/problems/count-square-submatrices-with-all-ones/
+
+Medium:
+1. Dungeon Game (174) - https://leetcode.com/problems/dungeon-game/
+2. Cherry Pickup (741) - https://leetcode.com/problems/cherry-pickup/
+3. Longest Increasing Path in a Matrix (329) - https://leetcode.com/problems/longest-increasing-path-in-a-matrix/
+4. Minimum Falling Path Sum (931) - https://leetcode.com/problems/minimum-falling-path-sum/
+
+3️⃣ DP on Subsequences (String DP)
+Easy:
+1. Longest Palindromic Substring (5) - https://leetcode.com/problems/longest-palindromic-substring/
+2. Palindromic Substrings (647) - https://leetcode.com/problems/palindromic-substrings/
+3. Longest Common Subsequence (1143) - https://leetcode.com/problems/longest-common-subsequence/
+4. Distinct Subsequences (115) - https://leetcode.com/problems/distinct-subsequences/
+
+Medium:
+1. Edit Distance (72) - https://leetcode.com/problems/edit-distance/
+2. Interleaving String (97) - https://leetcode.com/problems/interleaving-string/
+3. Scramble String (87) - https://leetcode.com/problems/scramble-string/
+4. Regular Expression Matching (10) - https://leetcode.com/problems/regular-expression-matching/
+
+4️⃣ Knapsack DP (Subset DP)
+Easy:
+1. Partition Equal Subset Sum (416) - https://leetcode.com/problems/partition-equal-subset-sum/
+2. Last Stone Weight II (1049) - https://leetcode.com/problems/last-stone-weight-ii/
+3. Target Sum (494) - https://leetcode.com/problems/target-sum/
+4. Combination Sum IV (377) - https://leetcode.com/problems/combination-sum-iv/
+
+Medium:
+1. Coin Change (322) - https://leetcode.com/problems/coin-change/
+2. Ones and Zeroes (474) - https://leetcode.com/problems/ones-and-zeroes/
+3. Number of Dice Rolls with Target Sum (1155) - https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/
+4. Profitable Schemes (879) - https://leetcode.com/problems/profitable-schemes/
+
+5️⃣ DP on Trees & Graphs
+Easy:
+1. House Robber III (337) - https://leetcode.com/problems/house-robber-iii/
+2. Binary Tree Cameras (968) - https://leetcode.com/problems/binary-tree-cameras/
+3. Longest Increasing Path in a Matrix (329) - https://leetcode.com/problems/longest-increasing-path-in-a-matrix/
+4. Course Schedule III (630) - https://leetcode.com/problems/course-schedule-iii/
+
+Medium:
+1. Longest String Chain (1048) - https://leetcode.com/problems/longest-string-chain/
+2. Longest Increasing Path in a Matrix (329) - https://leetcode.com/problems/longest-increasing-path-in-a-matrix/
+3. Course Schedule III (630) - https://leetcode.com/problems/course-schedule-iii/
+4. House Robber III (337) - https://leetcode.com/problems/house-robber-iii/
+
+6️⃣ Bitmask DP (Subset State DP)
+Easy:
+1. Partition to K Equal Sum Subsets (698) - https://leetcode.com/problems/partition-to-k-equal-sum-subsets/
+2. Matchsticks to Square (473) - https://leetcode.com/problems/matchsticks-to-square/
+3. Counting Bits (338) - https://leetcode.com/problems/counting-bits/
+4. Subset Sum (416) - https://leetcode.com/problems/partition-equal-subset-sum/
+
+Medium:
+1. Travelling Salesman Problem (TSP) (943) - https://leetcode.com/problems/travelling-salesman-problem/
+2. Minimum XOR Sum of Two Arrays (1879) - https://leetcode.com/problems/minimum-xor-sum-of-two-arrays/
+3. Profitable Schemes (879) - https://leetcode.com/problems/profitable-schemes/
+4. Count Numbers with Unique Digits (357) - https://leetcode.com/problems/count-numbers-with-unique-digits/
+
+---
+This file categorizes **Dynamic Programming (DP) problems** into different types and provides **4 Easy + 4 Medium problems** for each category.
