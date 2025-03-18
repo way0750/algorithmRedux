@@ -35,3 +35,18 @@
 single message queue
 pub-sub
     many to many
+
+
+# gRPC
+google remote procedure call
+    a communication framework build on top of http2
+    sends data in Protocol Buffer instead of JSON
+        cheaper/smaller in size
+    two way communication due to http2
+        also allows streaming
+    because of smaller in data size being transmited, quicker to de/serlialized 
+        and the two way communications
+        it is way faster to couple two systems together
+            that's why usually it is used in infrastructure/back end services/microservices
+    could be used between communication between a server and a uncontrollable/preditable/realiable
+        client, but econ system tooling isn't there yet.
