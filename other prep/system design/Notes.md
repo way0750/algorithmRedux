@@ -50,3 +50,9 @@ google remote procedure call
             that's why usually it is used in infrastructure/back end services/microservices
     could be used between communication between a server and a uncontrollable/preditable/realiable
         client, but econ system tooling isn't there yet.
+
+
+# load balancing
+    client side vs server side
+    layer 4 vs layer 7
+
