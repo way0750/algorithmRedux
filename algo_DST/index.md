@@ -305,3 +305,21 @@ And the example above wouldn't happen
   because: 012 and 123 they use the same amount of of As.
   and so both patterns are exactly the same and cover by the
   consuming of the same frequencies.
+
+
+# about queue, and probably stack:
+  https://leetcode.com/problems/jump-game-vi/
+  
+  sometimes you need to get a quick access to largest/smallest values within an range
+  so you need to maintain a monotonic queue/stack for quick access
+  ex: [1,1,1,2,2,5,5,7] or [8,8,6,5,3,3,2,1]
+  [1,2,6,9]
+  often you need to clean the queue/stack so it will always reflects the largest/smallest in a smaller range
+  ex: [9,7,6,5,8,7] range size = 3
+  it will look like:
+  [9]
+  [9,7]
+  [9,7,6]
+  [7,6,5]
+  [8], 8 pops all the previous ones
+  [8,7]
