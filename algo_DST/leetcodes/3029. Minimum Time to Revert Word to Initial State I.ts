@@ -30,3 +30,11 @@ so remove k amount (each time count + 1)
         }
         return count;
     };
+
+
+/**
+ * 
+ * 
+ * 
+ * ababSSSababSSSabab
+ */

@@ -323,3 +323,57 @@ And the example above wouldn't happen
   [7,6,5]
   [8], 8 pops all the previous ones
   [8,7]
+
+
+# the KMP string match algorithm
+for matching a short string against a long one, to see if short is a substring of long:
+
+let say: S = long string, P = pattern
+so if: X is the location with mis-match
+SSSSSSSSSSSSSSSSSSS
+  PPPPPPPPPPPX
+  A---------B
+  so from A to B everything matches, then X is where we have to stop matching, P is actually longer, but X stops the match
+  So whatever we already know about the pattern, from A to B, must be transferable to S's A to B
+  so what do we know about the pattern then?
+    well if we preprocess and figure out some facts about the pattern, then we will be able to transfer that to the S
+    enter the "prefix" and "subfix" of the pattern:
+    let's say
+    PPPPPPPPPPPPPP
+    1..1      2..2
+    1 is the prefix part and 2 is the subfix, meaning they are exactly the same.
+    and there can be multiple subfixes, THIS IS IMPORTANT:
+
+    PPPPPPPPPPPPPP
+      aaaa
+       bbbb
+         ccccc
+             ddddd
+    each subfix match the pattern prefix (the front portion of the string)
+    and yes you can also have a situation like this:
+    where the prefix and subfix even overlap the subfix
+    PPPPPPPPPPPPPP
+    1...........1
+      2...........2
+    
+    so now, with the knowledge of the possible subfixes in the pattern, you can "slide" the pattern to re-match
+    against the long string without having to moving i all the way back, or pattern all the way back, you can actually just:
+
+SSSSSSSSSSS...
+  PPPPPPPPP... mis match
+    PPPPPPPPP... slide the pattern back to test one subfix
+        PPPPPPPPP... slide the pattern again because the previous one didn't find a subfix to match the long string
+          keep going until finding a subfix that matches the long stirng, might need to go through all the subfixes
+    
+    now going through (potentiall all) subfixes, is essentially the same as re-testing by moving i back and pattern back like
+    the slow n * m way. Except this time you can re-use precalculated results to avoid moving i back, and can re-use precalculated
+      prefixes
+
+so the basic algorithm:
+  get the all the subfixes for the pattern first
+  then loop through the target string
+    match char by char
+      when a mismatch happens, you check the subfixes array to see which prefix you can use now
+        choose that prefix, essentially sliding the pattern forward.
+          if still doesn't match with current char, keep sliding forward (meaning choose a subfix from earlier in the array)
+      never move the i back at all!
