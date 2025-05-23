@@ -81,7 +81,6 @@ NumMatrix.prototype.sumRegion = function(row1, col1, row2, col2) {
     const left = col1 === 0 ? 0 : this.runningSums[row2][col1-1];
     const top = row1 === 0 ? 0 : this.runningSums[row1-1][col2];
     const overlap = col1 === 0 || row1 === 0 ? 0 : this.runningSums[row1-1][col1-1];
-    // console.log(total, left, top, overlap);
     return total - left - top + overlap;
 };
 
